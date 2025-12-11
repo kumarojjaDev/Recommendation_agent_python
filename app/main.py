@@ -6,7 +6,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from app.mongo_repository import get_all_products, find_by_exact_or_partial_name
+from app.database_repository import get_all_products, find_by_exact_or_partial_name
 from app import config
 from models.schemas import Product, PublicProduct, RecommendationRequest, RecommendationResponse
 

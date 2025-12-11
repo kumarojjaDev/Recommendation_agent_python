@@ -5,5 +5,7 @@
   "MONGO_URI": "mongodb://localhost:27017",
   "MONGO_DB": "recommendation_db",
   "MONGO_COLLECTION": "products",
-  "PRODUCTS_FILE": "products.json"
+  "PRODUCTS_FILE": "products.json",
+  "USE_POSTGRES": true,
+  "POSTGRES_DSN": "postgresql://localhost:5432/PostgreSQL 18"
 }

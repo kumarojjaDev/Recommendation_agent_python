@@ -1,3 +1,5 @@
+#python -m uvicorn app.main:app --reload --port 8000
+
 # Recommendation Agent API
 
 An AI-powered product recommendation system built with FastAPI, Google Gemini, and configurable data sources (JSON/MongoDB).

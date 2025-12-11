@@ -49,6 +49,8 @@ MONGO_URI = _get_env_override("MONGO_URI", default=_configured.get("MONGO_URI"))
 MONGO_DB = _get_env_override("MONGO_DB", default=_configured.get("MONGO_DB"))
 MONGO_COLLECTION = _get_env_override("MONGO_COLLECTION", default=_configured.get("MONGO_COLLECTION"))
 PRODUCTS_FILE = _get_env_override("PRODUCTS_FILE", default=_configured.get("PRODUCTS_FILE"))
+USE_POSTGRES=_get_env_override("USE_POSTGRES", cast_type=bool, default=_configured.get("USE_POSTGRES")) 
+POSTGRES_DSN = _get_env_override("POSTGRES_DSN", default=_configured.get("POSTGRES_DSN"))   
 
 # Resolve PRODUCTS_FILE to absolute path relative to data directory if needed
 PROJECT_ROOT = Path(__file__).resolve().parent.parent

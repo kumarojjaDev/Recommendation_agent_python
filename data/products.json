@@ -979,6 +979,382 @@
     "description": "Protective TPU case for Motorola Moto G Power with raised edges."
   },
   {
+    "id": 306,
+    "name": "Digital Blood Pressure Monitor",
+    "category": "medical_equipment",
+    "brand": "Omron",
+    "model": "HEM-7120",
+    "attributes": {
+      "measurement_type": "automatic",
+      "cuff_size": "22-32 cm",
+      "power": "batteries"
+    },
+    "tags": ["medical", "bp_monitor", "home_health", "omron"],
+    "image_url": "https://example.com/images/omron-hem-7120-bp-monitor.jpg",
+    "description": "Automatic digital blood pressure monitor with one-touch operation and large LCD display for home use."
+  },
+  {
+    "id": 307,
+    "name": "Finger Pulse Oximeter",
+    "category": "medical_equipment",
+    "brand": "DrTrust",
+    "model": "PO-300",
+    "attributes": {
+      "measurements": ["SpO2", "pulse_rate"],
+      "display": "OLED",
+      "power": "2x AAA"
+    },
+    "tags": ["medical", "pulse_oximeter", "spo2", "home_health"],
+    "image_url": "https://example.com/images/drtrust-finger-pulse-oximeter.jpg",
+    "description": "Compact finger pulse oximeter with OLED display showing SpO2 and pulse rate — ideal for quick checks."
+  },
+  {
+    "id": 308,
+    "name": "Glucometer Kit",
+    "category": "medical_equipment",
+    "brand": "Accu-Chek",
+    "model": "Guide",
+    "attributes": {
+      "includes": ["glucometer", "10 test strips", "lancets"],
+      "memory": "500 readings",
+      "connectivity": "none"
+    },
+    "tags": ["medical", "glucometer", "diabetes", "test_strips"],
+    "image_url": "https://example.com/images/accu-chek-guide-glucometer-kit.jpg",
+    "description": "Complete glucometer kit with test strips and lancing device; stores up to 500 readings for trend review."
+  },
+  {
+    "id": 309,
+    "name": "Nebulizer Compressor Machine",
+    "category": "medical_equipment",
+    "brand": "Philips",
+    "model": "InnoSpire",
+    "attributes": {
+      "type": "compressor_nebulizer",
+      "noise_level": "low",
+      "power": "AC"
+    },
+    "tags": ["medical", "nebulizer", "respiratory", "philips"],
+    "image_url": "https://example.com/images/philips-innospire-nebulizer.jpg",
+    "description": "Compact compressor nebulizer for respiratory therapy with mask and mouthpiece included."
+  },
+  {
+    "id": 310,
+    "name": "Digital Infrared Thermometer",
+    "category": "medical_equipment",
+    "brand": "Braun",
+    "model": "ThermoScan 7",
+    "attributes": {
+      "measurement_site": "forehead",
+      "response_time": "1s",
+      "memory": "9 readings"
+    },
+    "tags": ["medical", "thermometer", "infrared", "fever"],
+    "image_url": "https://example.com/images/braun-thermoscan-7-thermometer.jpg",
+    "description": "Non-contact infrared forehead thermometer for fast and hygienic temperature readings."
+  },
+  {
+    "id": 311,
+    "name": "First Aid Kit - 150 Pieces",
+    "category": "medical_supplies",
+    "brand": "Lifeline",
+    "model": "LK-150",
+    "attributes": {
+      "pieces": 150,
+      "case_material": "nylon",
+      "suitable_for": ["home", "car", "office"]
+    },
+    "tags": ["first_aid", "medical_supplies", "emergency_kit"],
+    "image_url": "https://example.com/images/lifeline-150-piece-first-aid-kit.jpg",
+    "description": "Comprehensive 150-piece first aid kit with bandages, antiseptics, scissors, and emergency supplies."
+  },
+  {
+    "id": 312,
+    "name": "Voltage Stabilizer - Refrigerator",
+    "category": "electrical_device",
+    "brand": "V-Guard",
+    "model": "VG-RF100",
+    "attributes": {
+      "capacity": "1000VA",
+      "input_voltage_range": "140-260V",
+      "type": "refrigerator_stabilizer"
+    },
+    "tags": ["electrical", "stabilizer", "vguard", "home_appliance"],
+    "image_url": "https://example.com/images/vguard-refrigerator-stabilizer-1000va.jpg",
+    "description": "Voltage stabilizer designed to protect refrigerators from voltage fluctuations with auto-restart feature."
+  },
+  {
+    "id": 313,
+    "name": "Home Inverter (12V, 800W)",
+    "category": "electrical_device",
+    "brand": "Luminous",
+    "model": "EcoVolt 800",
+    "attributes": {
+      "output_power": "800W",
+      "input_voltage": "12V",
+      "battery_type": "lead_acid"
+    },
+    "tags": ["inverter", "power_backup", "luminous"],
+    "image_url": "https://example.com/images/luminous-ecovolt-800-inverter.jpg",
+    "description": "800W home inverter for backup power with battery charging and overload protection."
+  },
+  {
+    "id": 314,
+    "name": "Surge Protector Power Strip - 6 Sockets",
+    "category": "electrical_accessory",
+    "brand": "Belkin",
+    "model": "BPS-6U",
+    "attributes": {
+      "sockets": 6,
+      "usb_ports": 2,
+      "surge_protection_rating": "2000J"
+    },
+    "tags": ["power_strip", "surge_protector", "belkin", "accessory"],
+    "image_url": "https://example.com/images/belkin-6-socket-surge-protector.jpg",
+    "description": "6-socket surge protector with 2 USB ports and 2000J surge absorption to protect electronics."
+  },
+  {
+    "id": 315,
+    "name": "Portable Oxygen Concentrator",
+    "category": "medical_equipment",
+    "brand": "Drive DeVilbiss",
+    "model": "iGo2",
+    "attributes": {
+      "flow_rate": "0.5-2L/min",
+      "power": ["AC","DC","battery"],
+      "weight": "5.2 kg"
+    },
+    "tags": ["medical", "oxygen_concentrator", "portable"],
+    "image_url": "https://example.com/images/drive-devilbiss-igo2-oxygen-concentrator.jpg",
+    "description": "Lightweight portable oxygen concentrator providing continuous oxygen flow with battery operation."
+  },
+  {
+    "id": 316,
+    "name": "Electric Kettle - 1.7L",
+    "category": "home_appliance",
+    "brand": "Prestige",
+    "model": "PKOSS 1.7L",
+    "attributes": {
+      "capacity": "1.7L",
+      "power": "1500W",
+      "material": "stainless_steel"
+    },
+    "tags": ["kitchen", "electric_kettle", "prestige"],
+    "image_url": "https://example.com/images/prestige-1-7l-electric-kettle.jpg",
+    "description": "Stainless steel electric kettle with auto shut-off and boil-dry protection for safe everyday use."
+  },
+  {
+    "id": 317,
+    "name": "Induction Cooktop - 2000W",
+    "category": "home_appliance",
+    "brand": "Philips",
+    "model": "HD4928",
+    "attributes": {
+      "power": "2000W",
+      "controls": "touch",
+      "safety": ["auto_shutoff", "child_lock"]
+    },
+    "tags": ["kitchen", "induction", "philips"],
+    "image_url": "https://example.com/images/philips-2000w-induction-cooktop.jpg",
+    "description": "2000W induction cooktop with precise temperature control and safety features for modern kitchens."
+  },
+  {
+    "id": 318,
+    "name": "Ceiling Fan - 1200mm Sweep",
+    "category": "electrical_device",
+    "brand": "Havells",
+    "model": "Stealth",
+    "attributes": {
+      "sweep_size": "1200mm",
+      "power": "60W",
+      "blades": 3
+    },
+    "tags": ["fan", "ceiling_fan", "havells"],
+    "image_url": "https://example.com/images/havells-stealth-ceiling-fan-1200mm.jpg",
+    "description": "Silent and efficient 1200mm ceiling fan with aerodynamic blades for powerful airflow."
+  },
+  {
+    "id": 319,
+    "name": "LED Emergency Light with Inverter",
+    "category": "electrical_device",
+    "brand": "Syska",
+    "model": "SLE-2152",
+    "attributes": {
+      "battery_backup": "6 hours",
+      "light_type": "LED",
+      "installation": "wall_mount"
+    },
+    "tags": ["emergency_light", "syska", "power_backup"],
+    "image_url": "https://example.com/images/syska-led-emergency-light.jpg",
+    "description": "Wall-mount LED emergency light with built-in inverter supplying hours of illumination during power cuts."
+  },
+  {
+    "id": 320,
+    "name": "Rechargeable Exam Light",
+    "category": "medical_accessory",
+    "brand": "Generic",
+    "model": "EXL-100",
+    "attributes": {
+      "light_type": "LED",
+      "battery": "rechargeable",
+      "usage": ["medical", "dental", "lab"]
+    },
+    "tags": ["medical_accessory", "exam_light", "rechargeable"],
+    "image_url": "https://example.com/images/rechargeable-exam-light.jpg",
+    "description": "Portable rechargeable LED exam light suitable for clinical exams and laboratory work."
+  },
+  {
+    "id": 321,
+    "name": "Handheld ECG Monitor",
+    "category": "medical_equipment",
+    "brand": "Kardia",
+    "model": "Mobile ECG",
+    "attributes": {
+      "lead": "single-lead",
+      "connectivity": "bluetooth",
+      "power": "rechargeable"
+    },
+    "tags": ["ecg", "medical", "kardia", "cardiac"],
+    "image_url": "https://example.com/images/kardia-handheld-ecg.jpg",
+    "description": "Portable single-lead ECG monitor with Bluetooth connectivity to record and share cardiac readings."
+  },
+  {
+    "id": 322,
+    "name": "Surgical Face Masks - Box of 50",
+    "category": "medical_supplies",
+    "brand": "HygienePro",
+    "model": "SFM-50",
+    "attributes": {
+      "piece_count": 50,
+      "type": "surgical",
+      "material": "3-ply_nonwoven"
+    },
+    "tags": ["masks", "ppe", "medical_supplies"],
+    "image_url": "https://example.com/images/surgical-face-masks-50-box.jpg",
+    "description": "Box of 50 disposable 3-ply surgical masks suitable for clinic and everyday protection."
+  },
+  {
+    "id": 323,
+    "name": "CPAP Machine (Auto-Adjusting)",
+    "category": "medical_equipment",
+    "brand": "ResMed",
+    "model": "AirSense 10",
+    "attributes": {
+      "type": "auto_cpAP",
+      "humidity_control": true,
+      "power": ["AC", "optional_battery"]
+    },
+    "tags": ["cpap", "sleep_apnea", "resmed"],
+    "image_url": "https://example.com/images/resmed-airsense-10-cpap.jpg",
+    "description": "Auto-adjusting CPAP machine with humidifier for comfortable long-term sleep apnea therapy."
+  },
+  {
+    "id": 324,
+    "name": "Electric Drill - Cordless (18V)",
+    "category": "power_tool",
+    "brand": "Bosch",
+    "model": "GSR 18V",
+    "attributes": {
+      "voltage": "18V",
+      "battery_type": "Li-ion",
+      "functions": ["drill", "driver"]
+    },
+    "tags": ["power_tool", "drill", "bosch"],
+    "image_url": "https://example.com/images/bosch-18v-cordless-drill.jpg",
+    "description": "Versatile 18V cordless drill/driver with compact design and lithium-ion battery for DIY and professional jobs."
+  },
+  {
+    "id": 325,
+    "name": "Portable UPS - 600VA",
+    "category": "electrical_device",
+    "brand": "APC",
+    "model": "BE600",
+    "attributes": {
+      "capacity": "600VA",
+      "output_sockets": 4,
+      "protection": ["surge", "battery_backup"]
+    },
+    "tags": ["ups", "apc", "power_backup"],
+    "image_url": "https://example.com/images/apc-be600-ups-600va.jpg",
+    "description": "Compact 600VA UPS with surge protection and battery backup for home routers, modems, and PCs."
+  },
+  {
+    "id": 326,
+    "name": "Ear Thermometer Probe Covers - Pack of 100",
+    "category": "medical_accessory",
+    "brand": "Generic",
+    "model": "ETPC-100",
+    "attributes": {
+      "quantity": 100,
+      "compatible_with": "ear_thermometers",
+      "material": "disposable"
+    },
+    "tags": ["medical_accessory", "thermometer_covers", "disposable"],
+    "image_url": "https://example.com/images/ear-thermometer-probe-covers-100.jpg",
+    "description": "Pack of 100 disposable probe covers for ear thermometers to ensure hygienic temperature readings."
+  },
+  {
+    "id": 327,
+    "name": "Rechargeable LED Worklight - 2000lm",
+    "category": "tool_accessory",
+    "brand": "Milwaukee",
+    "model": "ML-2000",
+    "attributes": {
+      "lumens": 2000,
+      "battery": "rechargeable",
+      "modes": ["high", "medium", "low", "strobe"]
+    },
+    "tags": ["worklight", "led", "milwaukee"],
+    "image_url": "https://example.com/images/milwaukee-rechargeable-led-worklight.jpg",
+    "description": "High-output rechargeable LED worklight with multiple brightness modes for jobsite and home use."
+  },
+  {
+    "id": 328,
+    "name": "AA Alkaline Batteries - Pack of 24",
+    "category": "accessory",
+    "brand": "Duracell",
+    "model": "AA24",
+    "attributes": {
+      "cell_type": "AA",
+      "chemistry": "alkaline",
+      "count": 24
+    },
+    "tags": ["batteries", "accessory", "duracell"],
+    "image_url": "https://example.com/images/duracell-aa-24-pack.jpg",
+    "description": "Pack of 24 AA alkaline batteries suitable for remotes, toys, and household electronics."
+  },
+  {
+    "id": 329,
+    "name": "Smart Voltage Monitor Plug",
+    "category": "electrical_accessory",
+    "brand": "TP-Link",
+    "model": "HS110",
+    "attributes": {
+      "smart_plug": true,
+      "energy_monitoring": true,
+      "connectivity": "Wi-Fi"
+    },
+    "tags": ["smart_plug", "energy_monitor", "tplink"],
+    "image_url": "https://example.com/images/tplink-hs110-smart-plug.jpg",
+    "description": "Wi-Fi smart plug with energy monitoring and remote control via mobile app for home automation."
+  },
+  {
+    "id": 330,
+    "name": "Medical Grade Disposable Gloves - Box of 100",
+    "category": "medical_supplies",
+    "brand": "SafeHands",
+    "model": "Nitrile-100",
+    "attributes": {
+      "material": "nitrile",
+      "size": "medium",
+      "quantity": 100,
+      "sterile": false
+    },
+    "tags": ["gloves", "medical_supplies", "ppe", "nitrile"],
+    "image_url": "https://example.com/images/nitrile-disposable-gloves-100-box.jpg",
+    "description": "Box of 100 medical-grade nitrile disposable gloves — powder-free and suitable for clinical and lab use."
+  },
+  {
     "id": 242,
     "name": "Moto G Power Tempered Glass",
     "category": "screen_guard",
