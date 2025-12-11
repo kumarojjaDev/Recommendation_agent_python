@@ -14,8 +14,8 @@ _defaults: Dict[str, Any] = {
     "PRODUCTS_FILE": "products.json",
 }
 
-# Load configuration from config.json if present (project root)
-CONFIG_FILE = Path(__file__).resolve().parent / "config.json"
+# Load configuration from config.json if present (data directory)
+CONFIG_FILE = Path(__file__).resolve().parent.parent / "data" / "config.json"
 _config: Dict[str, Any] = {}
 if CONFIG_FILE.exists():
     try:
@@ -50,9 +50,9 @@ MONGO_DB = _get_env_override("MONGO_DB", default=_configured.get("MONGO_DB"))
 MONGO_COLLECTION = _get_env_override("MONGO_COLLECTION", default=_configured.get("MONGO_COLLECTION"))
 PRODUCTS_FILE = _get_env_override("PRODUCTS_FILE", default=_configured.get("PRODUCTS_FILE"))
 
-# Resolve PRODUCTS_FILE to absolute path relative to project root if needed
-PROJECT_ROOT = Path(__file__).resolve().parent
-PRODUCTS_PATH = Path(PROJECT_ROOT / PRODUCTS_FILE)
+# Resolve PRODUCTS_FILE to absolute path relative to data directory if needed
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PRODUCTS_PATH = Path(PROJECT_ROOT / "data" / PRODUCTS_FILE)
 
 # Expose a dict view if needed
 def as_dict() -> Dict[str, Any]:

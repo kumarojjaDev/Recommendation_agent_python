@@ -14,7 +14,7 @@ import json
 from typing import List, Optional
 
 # Import config values
-from config import PRODUCTS_PATH, USE_MONGO, MONGO_URI, MONGO_DB, MONGO_COLLECTION
+from app.config import PRODUCTS_PATH, USE_MONGO, MONGO_URI, MONGO_DB, MONGO_COLLECTION
 
 # Import MongoDB dependencies only if needed
 try:
@@ -73,7 +73,7 @@ def get_all_products() -> List[object]:
 		return []
 
 	# import locally to avoid circular import
-	from main import Product
+	from models.schemas import Product
 	return [Product.parse_obj(item) for item in data]
 
 def find_by_exact_or_partial_name(name: str) -> Optional[object]:

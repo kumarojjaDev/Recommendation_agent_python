@@ -6,6 +6,101 @@ An AI-powered product recommendation system built with FastAPI, Google Gemini, a
 
 This project implements a recommendation agent that uses Google's Gemini AI to suggest relevant product accessories and complements based on user queries. The system supports multiple phone brands and models, providing intelligent recommendations for cases, chargers, screen protectors, and other accessories.
 
+## Project Structure
+
+The project has been reorganized into a clear folder structure:
+
+```
+recommendation_agent/
+├── app/                  # FastAPI application code
+│   ├── main.py           # API endpoints and core logic
+│   ├── config.py         # Configuration loading
+│   └── mongo_repository.py # Data repository layer
+│
+├── data/                 # Data files and configuration
+│   ├── products.json     # Product database
+│   ├── config.json       # Configuration settings
+│   └── render.yaml       # Deployment configuration
+│
+├── models/               # Data models and schemas
+│   ├── schemas.py        # Pydantic models
+│   └── list_models.py    # Model listing utility
+│
+├── documents/            # Project documentation
+│   ├── README.md         # Main documentation
+│   └── agent_logic.md    # AI agent details
+│
+├── requirements.txt      # Python dependencies
+├── .env                  # Environment variables
+└── .venv/                # Virtual environment
+```
+
+## Key Changes in Refactor
+
+1. **Modular Organization**: Code is now separated by concern:
+   - `app/` contains all FastAPI application logic
+   - `data/` holds JSON files and configuration
+   - `models/` contains Pydantic schemas and model utilities
+   - `documents/` stores all project documentation
+
+2. **Updated Imports**: All imports now use the new folder structure:
+   - `from app.mongo_repository import ...`
+   - `from app import config`
+   - `from models.schemas import Product, PublicProduct, ...`
+
+3. **Configuration Paths**: Data file paths updated to point to `data/` directory
+
+4. **Deployment Configuration**: `render.yaml` updated to use `app.main:app`
+
+## Running the Refactored Application
+
+```bash
+# Set environment variables
+export GEMINI_API_KEY="your_api_key"
+
+# Run with uvicorn (note the new path)
+uvicorn app.main:app --reload
+```
+
+## API Endpoints
+
+The endpoints remain the same but now use the refactored structure:
+
+### GET /health
+Returns system health status including data source and Gemini model configuration.
+
+### POST /recommendations
+Generates product recommendations based on item name.
+
+## Configuration
+
+Configuration files are now located in the `data/` directory:
+
+- `data/config.json`: Main configuration
+- `data/products.json`: Product database
+- `data/render.yaml`: Deployment settings
+
+## Development
+
+The refactored structure makes development easier:
+
+- **Models**: Add new Pydantic models in `models/schemas.py`
+- **API**: Extend endpoints in `app/main.py`
+- **Data**: Update products in `data/products.json`
+- **Docs**: Maintain documentation in `documents/`
+
+## Migration Notes
+
+If you were using the old structure, update your commands:
+
+- Old: `uvicorn main:app`
+- New: `uvicorn app.main:app`
+
+- Old: `from main import Product`
+- New: `from models.schemas import Product`
+
+The application functionality remains identical, just better organized!
+
 ## Architecture
 
 ### System Components
@@ -242,6 +337,8 @@ Generates product recommendations based on item name.
 pip install -r requirements.txt
 export GEMINI_API_KEY="your_api_key"
 uvicorn main:app --reload
+
+python -m uvicorn app.main:app --reload --port 8000
 ```
 
 ### Production (Render)

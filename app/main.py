@@ -6,13 +6,13 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from mongo_repository import get_all_products, find_by_exact_or_partial_name
-import config
+from app.mongo_repository import get_all_products, find_by_exact_or_partial_name
+from app import config
+from models.schemas import Product, PublicProduct, RecommendationRequest, RecommendationResponse
 
 from google import genai
 from google.genai import types
 import google.genai.errors as genai_errors
-
 
 # ==========================
 # Config & Client
@@ -34,41 +34,7 @@ app = FastAPI(
     description="AI-powered product recommendation agent using Gemini + configurable data source (JSON/MongoDB).",
 )
 
-
-# ==========================
-# Data Models
-# ==========================
-
-class Product(BaseModel):
-    id: int
-    name: str
-    category: str
-    brand: Optional[str] = None
-    model: Optional[str] = None
-    attributes: dict = Field(default_factory=dict)
-    tags: List[str] = Field(default_factory=list)
-
-
-class PublicProduct(BaseModel):
-    id: int
-    name: str
-    category: str
-    brand: Optional[str] = None
-    model: Optional[str] = None
-
-
-class RecommendationRequest(BaseModel):
-    item_name: str
-    limit: int = 5
-
-
-class RecommendationResponse(BaseModel):
-    primary_item: Optional[PublicProduct]
-    recommendations: List[PublicProduct]
-
-
 # Repository layer: implemented in `mongo_repository.py` (currently JSON-backed)
-
 
 # ==========================
 # Candidate builder
@@ -131,7 +97,6 @@ def build_candidates(primary: Product) -> List[Product]:
                 continue
 
     return candidates
-
 
 # ==========================
 # Gemini selector
@@ -225,7 +190,6 @@ Return ONLY valid JSON in this exact format:
         return [c.id for c in candidates[:limit]]
     return clean_ids[:limit]
 
-
 # ==========================
 # Utility
 # ==========================
@@ -238,7 +202,6 @@ def to_public_product(prod: Product) -> PublicProduct:
         brand=prod.brand,
         model=prod.model,
     )
-
 
 # ==========================
 # API endpoints
