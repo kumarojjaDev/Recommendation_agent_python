@@ -197,7 +197,7 @@
     "id": 202,
     "name": "Samsung A57 Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Samsung",
     "model": "A57",
     "attributes": {
       "compatible_model": "A57",
@@ -260,7 +260,7 @@
     "id": 205,
     "name": "Samsung A57 Camera Lens Protector",
     "category": "camera_protector",
-    "brand": "Generic",
+    "brand": "Samsung",
     "model": "A57",
     "attributes": {
       "compatible_model": "A57",
@@ -378,7 +378,7 @@
     "id": 211,
     "name": "Samsung Galaxy S24 Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Samsung",
     "model": "S24",
     "attributes": {
       "compatible_model": "S24",
@@ -418,7 +418,7 @@
     "id": 213,
     "name": "Samsung S24 Car Mount Holder",
     "category": "car_mount",
-    "brand": "Generic",
+    "brand": "Samsung",
     "model": "S24",
     "attributes": {
       "compatible_model": "S24",
@@ -478,7 +478,7 @@
     "id": 216,
     "name": "Apple iPhone 15 Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Apple",
     "model": "iPhone 15",
     "attributes": {
       "compatible_model": "iPhone 15",
@@ -498,7 +498,7 @@
     "id": 217,
     "name": "iPhone 15 Camera Lens Protector",
     "category": "camera_protector",
-    "brand": "Generic",
+    "brand": "Apple",
     "model": "iPhone 15",
     "attributes": {
       "compatible_model": "iPhone 15",
@@ -615,7 +615,7 @@
     "id": 223,
     "name": "Apple iPhone 14 Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Apple",
     "model": "iPhone 14",
     "attributes": {
       "compatible_model": "iPhone 14",
@@ -732,7 +732,7 @@
     "id": 229,
     "name": "Google Pixel 9 Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Google",
     "model": "Pixel 9",
     "attributes": {
       "compatible_model": "Pixel 9",
@@ -789,7 +789,7 @@
     "id": 232,
     "name": "USB-C Wired Earbuds for Pixel",
     "category": "earphones",
-    "brand": "Generic",
+    "brand": "Google",
     "model": null,
     "attributes": {
       "connector": "usb_c",
@@ -848,7 +848,7 @@
     "id": 235,
     "name": "OnePlus 12R Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "OnePlus",
     "model": "12R",
     "attributes": {
       "compatible_model": "12R",
@@ -944,7 +944,7 @@
     "id": 240,
     "name": "Xiaomi Redmi Note 13 Pro Tempered Glass",
     "category": "screen_guard",
-    "brand": "Generic",
+    "brand": "Xiaomi",
     "model": "Redmi Note 13 Pro",
     "attributes": {
       "compatible_model": "Redmi Note 13 Pro",
@@ -989,7 +989,12 @@
       "cuff_size": "22-32 cm",
       "power": "batteries"
     },
-    "tags": ["medical", "bp_monitor", "home_health", "omron"],
+    "tags": [
+      "medical",
+      "bp_monitor",
+      "home_health",
+      "omron"
+    ],
     "image_url": "https://example.com/images/omron-hem-7120-bp-monitor.jpg",
     "description": "Automatic digital blood pressure monitor with one-touch operation and large LCD display for home use."
   },
@@ -1000,11 +1005,19 @@
     "brand": "DrTrust",
     "model": "PO-300",
     "attributes": {
-      "measurements": ["SpO2", "pulse_rate"],
+      "measurements": [
+        "SpO2",
+        "pulse_rate"
+      ],
       "display": "OLED",
       "power": "2x AAA"
     },
-    "tags": ["medical", "pulse_oximeter", "spo2", "home_health"],
+    "tags": [
+      "medical",
+      "pulse_oximeter",
+      "spo2",
+      "home_health"
+    ],
     "image_url": "https://example.com/images/drtrust-finger-pulse-oximeter.jpg",
     "description": "Compact finger pulse oximeter with OLED display showing SpO2 and pulse rate — ideal for quick checks."
   },
@@ -1015,11 +1028,20 @@
     "brand": "Accu-Chek",
     "model": "Guide",
     "attributes": {
-      "includes": ["glucometer", "10 test strips", "lancets"],
+      "includes": [
+        "glucometer",
+        "10 test strips",
+        "lancets"
+      ],
       "memory": "500 readings",
       "connectivity": "none"
     },
-    "tags": ["medical", "glucometer", "diabetes", "test_strips"],
+    "tags": [
+      "medical",
+      "glucometer",
+      "diabetes",
+      "test_strips"
+    ],
     "image_url": "https://example.com/images/accu-chek-guide-glucometer-kit.jpg",
     "description": "Complete glucometer kit with test strips and lancing device; stores up to 500 readings for trend review."
   },
@@ -1034,7 +1056,12 @@
       "noise_level": "low",
       "power": "AC"
     },
-    "tags": ["medical", "nebulizer", "respiratory", "philips"],
+    "tags": [
+      "medical",
+      "nebulizer",
+      "respiratory",
+      "philips"
+    ],
     "image_url": "https://example.com/images/philips-innospire-nebulizer.jpg",
     "description": "Compact compressor nebulizer for respiratory therapy with mask and mouthpiece included."
   },
@@ -1049,7 +1076,12 @@
       "response_time": "1s",
       "memory": "9 readings"
     },
-    "tags": ["medical", "thermometer", "infrared", "fever"],
+    "tags": [
+      "medical",
+      "thermometer",
+      "infrared",
+      "fever"
+    ],
     "image_url": "https://example.com/images/braun-thermoscan-7-thermometer.jpg",
     "description": "Non-contact infrared forehead thermometer for fast and hygienic temperature readings."
   },
@@ -1062,9 +1094,17 @@
     "attributes": {
       "pieces": 150,
       "case_material": "nylon",
-      "suitable_for": ["home", "car", "office"]
+      "suitable_for": [
+        "home",
+        "car",
+        "office"
+      ]
     },
-    "tags": ["first_aid", "medical_supplies", "emergency_kit"],
+    "tags": [
+      "first_aid",
+      "medical_supplies",
+      "emergency_kit"
+    ],
     "image_url": "https://example.com/images/lifeline-150-piece-first-aid-kit.jpg",
     "description": "Comprehensive 150-piece first aid kit with bandages, antiseptics, scissors, and emergency supplies."
   },
@@ -1079,7 +1119,12 @@
       "input_voltage_range": "140-260V",
       "type": "refrigerator_stabilizer"
     },
-    "tags": ["electrical", "stabilizer", "vguard", "home_appliance"],
+    "tags": [
+      "electrical",
+      "stabilizer",
+      "vguard",
+      "home_appliance"
+    ],
     "image_url": "https://example.com/images/vguard-refrigerator-stabilizer-1000va.jpg",
     "description": "Voltage stabilizer designed to protect refrigerators from voltage fluctuations with auto-restart feature."
   },
@@ -1094,7 +1139,11 @@
       "input_voltage": "12V",
       "battery_type": "lead_acid"
     },
-    "tags": ["inverter", "power_backup", "luminous"],
+    "tags": [
+      "inverter",
+      "power_backup",
+      "luminous"
+    ],
     "image_url": "https://example.com/images/luminous-ecovolt-800-inverter.jpg",
     "description": "800W home inverter for backup power with battery charging and overload protection."
   },
@@ -1109,7 +1158,12 @@
       "usb_ports": 2,
       "surge_protection_rating": "2000J"
     },
-    "tags": ["power_strip", "surge_protector", "belkin", "accessory"],
+    "tags": [
+      "power_strip",
+      "surge_protector",
+      "belkin",
+      "accessory"
+    ],
     "image_url": "https://example.com/images/belkin-6-socket-surge-protector.jpg",
     "description": "6-socket surge protector with 2 USB ports and 2000J surge absorption to protect electronics."
   },
@@ -1121,10 +1175,18 @@
     "model": "iGo2",
     "attributes": {
       "flow_rate": "0.5-2L/min",
-      "power": ["AC","DC","battery"],
+      "power": [
+        "AC",
+        "DC",
+        "battery"
+      ],
       "weight": "5.2 kg"
     },
-    "tags": ["medical", "oxygen_concentrator", "portable"],
+    "tags": [
+      "medical",
+      "oxygen_concentrator",
+      "portable"
+    ],
     "image_url": "https://example.com/images/drive-devilbiss-igo2-oxygen-concentrator.jpg",
     "description": "Lightweight portable oxygen concentrator providing continuous oxygen flow with battery operation."
   },
@@ -1139,7 +1201,11 @@
       "power": "1500W",
       "material": "stainless_steel"
     },
-    "tags": ["kitchen", "electric_kettle", "prestige"],
+    "tags": [
+      "kitchen",
+      "electric_kettle",
+      "prestige"
+    ],
     "image_url": "https://example.com/images/prestige-1-7l-electric-kettle.jpg",
     "description": "Stainless steel electric kettle with auto shut-off and boil-dry protection for safe everyday use."
   },
@@ -1152,9 +1218,16 @@
     "attributes": {
       "power": "2000W",
       "controls": "touch",
-      "safety": ["auto_shutoff", "child_lock"]
+      "safety": [
+        "auto_shutoff",
+        "child_lock"
+      ]
     },
-    "tags": ["kitchen", "induction", "philips"],
+    "tags": [
+      "kitchen",
+      "induction",
+      "philips"
+    ],
     "image_url": "https://example.com/images/philips-2000w-induction-cooktop.jpg",
     "description": "2000W induction cooktop with precise temperature control and safety features for modern kitchens."
   },
@@ -1169,7 +1242,11 @@
       "power": "60W",
       "blades": 3
     },
-    "tags": ["fan", "ceiling_fan", "havells"],
+    "tags": [
+      "fan",
+      "ceiling_fan",
+      "havells"
+    ],
     "image_url": "https://example.com/images/havells-stealth-ceiling-fan-1200mm.jpg",
     "description": "Silent and efficient 1200mm ceiling fan with aerodynamic blades for powerful airflow."
   },
@@ -1184,7 +1261,11 @@
       "light_type": "LED",
       "installation": "wall_mount"
     },
-    "tags": ["emergency_light", "syska", "power_backup"],
+    "tags": [
+      "emergency_light",
+      "syska",
+      "power_backup"
+    ],
     "image_url": "https://example.com/images/syska-led-emergency-light.jpg",
     "description": "Wall-mount LED emergency light with built-in inverter supplying hours of illumination during power cuts."
   },
@@ -1197,9 +1278,17 @@
     "attributes": {
       "light_type": "LED",
       "battery": "rechargeable",
-      "usage": ["medical", "dental", "lab"]
+      "usage": [
+        "medical",
+        "dental",
+        "lab"
+      ]
     },
-    "tags": ["medical_accessory", "exam_light", "rechargeable"],
+    "tags": [
+      "medical_accessory",
+      "exam_light",
+      "rechargeable"
+    ],
     "image_url": "https://example.com/images/rechargeable-exam-light.jpg",
     "description": "Portable rechargeable LED exam light suitable for clinical exams and laboratory work."
   },
@@ -1214,7 +1303,12 @@
       "connectivity": "bluetooth",
       "power": "rechargeable"
     },
-    "tags": ["ecg", "medical", "kardia", "cardiac"],
+    "tags": [
+      "ecg",
+      "medical",
+      "kardia",
+      "cardiac"
+    ],
     "image_url": "https://example.com/images/kardia-handheld-ecg.jpg",
     "description": "Portable single-lead ECG monitor with Bluetooth connectivity to record and share cardiac readings."
   },
@@ -1227,9 +1321,15 @@
     "attributes": {
       "piece_count": 50,
       "type": "surgical",
-      "material": "3-ply_nonwoven"
+      "material": "3-ply_nonwoven",
+      "compatible_with_medical_model": "InnoSpire",
+      "compatible_brand": "Philips"
     },
-    "tags": ["masks", "ppe", "medical_supplies"],
+    "tags": [
+      "masks",
+      "ppe",
+      "medical_supplies"
+    ],
     "image_url": "https://example.com/images/surgical-face-masks-50-box.jpg",
     "description": "Box of 50 disposable 3-ply surgical masks suitable for clinic and everyday protection."
   },
@@ -1242,9 +1342,16 @@
     "attributes": {
       "type": "auto_cpAP",
       "humidity_control": true,
-      "power": ["AC", "optional_battery"]
+      "power": [
+        "AC",
+        "optional_battery"
+      ]
     },
-    "tags": ["cpap", "sleep_apnea", "resmed"],
+    "tags": [
+      "cpap",
+      "sleep_apnea",
+      "resmed"
+    ],
     "image_url": "https://example.com/images/resmed-airsense-10-cpap.jpg",
     "description": "Auto-adjusting CPAP machine with humidifier for comfortable long-term sleep apnea therapy."
   },
@@ -1257,9 +1364,16 @@
     "attributes": {
       "voltage": "18V",
       "battery_type": "Li-ion",
-      "functions": ["drill", "driver"]
+      "functions": [
+        "drill",
+        "driver"
+      ]
     },
-    "tags": ["power_tool", "drill", "bosch"],
+    "tags": [
+      "power_tool",
+      "drill",
+      "bosch"
+    ],
     "image_url": "https://example.com/images/bosch-18v-cordless-drill.jpg",
     "description": "Versatile 18V cordless drill/driver with compact design and lithium-ion battery for DIY and professional jobs."
   },
@@ -1272,9 +1386,16 @@
     "attributes": {
       "capacity": "600VA",
       "output_sockets": 4,
-      "protection": ["surge", "battery_backup"]
+      "protection": [
+        "surge",
+        "battery_backup"
+      ]
     },
-    "tags": ["ups", "apc", "power_backup"],
+    "tags": [
+      "ups",
+      "apc",
+      "power_backup"
+    ],
     "image_url": "https://example.com/images/apc-be600-ups-600va.jpg",
     "description": "Compact 600VA UPS with surge protection and battery backup for home routers, modems, and PCs."
   },
@@ -1289,7 +1410,11 @@
       "compatible_with": "ear_thermometers",
       "material": "disposable"
     },
-    "tags": ["medical_accessory", "thermometer_covers", "disposable"],
+    "tags": [
+      "medical_accessory",
+      "thermometer_covers",
+      "disposable"
+    ],
     "image_url": "https://example.com/images/ear-thermometer-probe-covers-100.jpg",
     "description": "Pack of 100 disposable probe covers for ear thermometers to ensure hygienic temperature readings."
   },
@@ -1302,9 +1427,18 @@
     "attributes": {
       "lumens": 2000,
       "battery": "rechargeable",
-      "modes": ["high", "medium", "low", "strobe"]
+      "modes": [
+        "high",
+        "medium",
+        "low",
+        "strobe"
+      ]
     },
-    "tags": ["worklight", "led", "milwaukee"],
+    "tags": [
+      "worklight",
+      "led",
+      "milwaukee"
+    ],
     "image_url": "https://example.com/images/milwaukee-rechargeable-led-worklight.jpg",
     "description": "High-output rechargeable LED worklight with multiple brightness modes for jobsite and home use."
   },
@@ -1319,7 +1453,11 @@
       "chemistry": "alkaline",
       "count": 24
     },
-    "tags": ["batteries", "accessory", "duracell"],
+    "tags": [
+      "batteries",
+      "accessory",
+      "duracell"
+    ],
     "image_url": "https://example.com/images/duracell-aa-24-pack.jpg",
     "description": "Pack of 24 AA alkaline batteries suitable for remotes, toys, and household electronics."
   },
@@ -1334,7 +1472,11 @@
       "energy_monitoring": true,
       "connectivity": "Wi-Fi"
     },
-    "tags": ["smart_plug", "energy_monitor", "tplink"],
+    "tags": [
+      "smart_plug",
+      "energy_monitor",
+      "tplink"
+    ],
     "image_url": "https://example.com/images/tplink-hs110-smart-plug.jpg",
     "description": "Wi-Fi smart plug with energy monitoring and remote control via mobile app for home automation."
   },
@@ -1350,7 +1492,12 @@
       "quantity": 100,
       "sterile": false
     },
-    "tags": ["gloves", "medical_supplies", "ppe", "nitrile"],
+    "tags": [
+      "gloves",
+      "medical_supplies",
+      "ppe",
+      "nitrile"
+    ],
     "image_url": "https://example.com/images/nitrile-disposable-gloves-100-box.jpg",
     "description": "Box of 100 medical-grade nitrile disposable gloves — powder-free and suitable for clinical and lab use."
   },
@@ -1445,7 +1592,8 @@
     "model": null,
     "attributes": {
       "wireless": true,
-      "bluetooth_version": "5.0"
+      "bluetooth_version": "5.0",
+      "required_input": "5V"
     },
     "tags": [
       "speaker",
@@ -1463,7 +1611,8 @@
     "attributes": {
       "wireless": true,
       "battery_life": "20h",
-      "compatible_brand": "Universal"
+      "compatible_brand": "Universal",
+      "compatible_with_speaker": true
     },
     "tags": [
       "earbuds",
@@ -1531,5 +1680,88 @@
     ],
     "image_url": "https://example.com/images/silicone-watch-strap-22mm-black.jpg",
     "description": "Universal 22mm silicone watch strap compatible with many Android smartwatches."
+  },
+  {
+    "id": 333,
+    "name": "Nebulizer Replacement Mask (Adult) for Philips InnoSpire",
+    "category": "medical_supplies",
+    "brand": "Philips",
+    "model": null,
+    "attributes": {
+      "compatible_with_medical_model": "InnoSpire",
+      "compatible_brand": "Philips",
+      "type": "nebulizer_mask",
+      "size": "adult"
+    },
+    "tags": [
+      "mask",
+      "nebulizer",
+      "philips",
+      "medical_supplies"
+    ],
+    "image_url": "https://example.com/images/philips-innospire-mask-adult.jpg",
+    "description": "Adult replacement nebulizer mask compatible with Philips InnoSpire compressor nebulizers."
+  },
+  {
+    "id": 334,
+    "name": "Nebulizer Replacement Tubing for Philips InnoSpire",
+    "category": "medical_accessory",
+    "brand": "Philips",
+    "model": null,
+    "attributes": {
+      "compatible_with_medical_model": "InnoSpire",
+      "compatible_brand": "Philips",
+      "type": "tubing",
+      "length": "1.2m"
+    },
+    "tags": [
+      "tubing",
+      "nebulizer",
+      "philips",
+      "medical_accessory"
+    ],
+    "image_url": "https://example.com/images/philips-innospire-tubing.jpg",
+    "description": "Replacement tubing for Philips InnoSpire nebulizer compressor machines."
+  },
+  {
+    "id": 335,
+    "name": "Nebulizer Filter Kit for Philips InnoSpire",
+    "category": "medical_supplies",
+    "brand": "Philips",
+    "model": null,
+    "attributes": {
+      "compatible_with_medical_model": "InnoSpire",
+      "compatible_brand": "Philips",
+      "type": "filter_kit",
+      "replacement_interval": "6 months"
+    },
+    "tags": [
+      "filter",
+      "nebulizer",
+      "philips",
+      "medical_supplies"
+    ],
+    "image_url": "https://example.com/images/philips-innospire-filter-kit.jpg",
+    "description": "Replacement filter kit for Philips InnoSpire nebulizer compressors."
+  },
+  {
+    "id": 336,
+    "name": "Nebulizer Mouthpiece for Philips InnoSpire",
+    "category": "medical_accessory",
+    "brand": "Philips",
+    "model": null,
+    "attributes": {
+      "compatible_with_medical_model": "InnoSpire",
+      "compatible_brand": "Philips",
+      "type": "mouthpiece"
+    },
+    "tags": [
+      "mouthpiece",
+      "nebulizer",
+      "philips",
+      "medical_accessory"
+    ],
+    "image_url": "https://example.com/images/philips-innospire-mouthpiece.jpg",
+    "description": "Replacement mouthpiece for use with Philips InnoSpire nebulizer compressors."
   }
 ]

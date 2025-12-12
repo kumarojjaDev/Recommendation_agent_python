@@ -1,36 +1,79 @@
 """
-Repository layer prepared for PostgreSQL but currently backed by local JSON.
+Repository layer for products with robust Postgres support (connection pool),
+safe parameterized queries, JSON/array handling, and fallback to local JSON.
 
-This module exposes small helper functions used by `main.py` to fetch
-product data. By default the implementation reads PRODUCTS_PATH and returns
-Pydantic `Product` instances. If configured to use Postgres (USE_POSTGRES),
-it will attempt to read from the configured database; if that fails it falls
-back to the local JSON file.
-
-To avoid circular imports we import the `Product` model inside the functions
-at runtime rather than at module import time.
+Config values required in app.config:
+  - PRODUCTS_PATH: path to local JSON fallback
+  - USE_POSTGRES: bool (enable Postgres usage)
+  - POSTGRES_DSN: e.g. "postgresql://user:pass@host:5432/dbname"
 """
 
 from pathlib import Path
 import json
 import logging
-from typing import List, Optional, Any, Iterable
+from typing import List, Optional, Any, Iterable, Dict
+import threading
 
-# Import config values (ensure these exist in your app.config)
 from app.config import PRODUCTS_PATH, USE_POSTGRES, POSTGRES_DSN
 
-# Import psycopg2 dependencies only if available
+# psycopg2 optional import
 try:
     import psycopg2
     import psycopg2.extras
+    from psycopg2 import pool
     PSYCOPG2_AVAILABLE = True
 except Exception:
+    psycopg2 = None
     PSYCOPG2_AVAILABLE = False
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
 DATA_FILE = Path(PRODUCTS_PATH)
+# connection pool will be created lazily and be module-global
+_pool_lock = threading.Lock()
+_conn_pool: Optional[pool.ThreadedConnectionPool] = None
+
+
+def _ensure_pool(minconn: int = 1, maxconn: int = 10):
+    """Initialize global pool if not already created. Thread-safe."""
+    global _conn_pool
+    if not PSYCOPG2_AVAILABLE:
+        return None
+    if not POSTGRES_DSN:
+        return None
+    if _conn_pool is None:
+        with _pool_lock:
+            if _conn_pool is None:
+                try:
+                    _conn_pool = pool.ThreadedConnectionPool(minconn, maxconn, dsn=POSTGRES_DSN)
+                    logger.info("Postgres connection pool created (min=%s max=%s)", minconn, maxconn)
+                except Exception as e:
+                    logger.exception("Failed to create Postgres connection pool: %s", e)
+                    _conn_pool = None
+    return _conn_pool
+
+
+def _get_conn():
+    """Get a connection from the pool (or None if unavailable). Use with finally to put back."""
+    p = _ensure_pool()
+    if not p:
+        return None
+    try:
+        return p.getconn()
+    except Exception:
+        logger.exception("Failed to fetch connection from pool.")
+        return None
+
+
+def _put_conn(conn):
+    """Return connection to pool (no-op if pool missing)."""
+    p = _conn_pool
+    if p and conn:
+        try:
+            p.putconn(conn)
+        except Exception:
+            logger.exception("Failed to put connection back to pool.")
 
 
 def _load_json_data() -> List[dict]:
@@ -55,108 +98,181 @@ def _load_json_data() -> List[dict]:
 
 
 def _rows_to_dicts(rows) -> List[dict]:
-    """Convert psycopg2 RealDict rows to plain dicts (safe copy)."""
+    """Convert RealDict rows to plain dicts."""
     return [dict(r) for r in rows] if rows else []
 
 
+# ----------------------
+# Postgres helper queries
+# ----------------------
 def _load_postgres_data(limit: Optional[int] = None, offset: int = 0) -> List[dict]:
     """
-    Load product data from Postgres.
-
-    Expects a table named `products` with columns:
-      - id (int)
-      - name (text)
-      - category (text)
-      - brand (text)
-      - model (text)
-      - attributes (jsonb)
-      - tags (text[])  -- Postgres array
-      - image_url (text)
-      - description (text)
-
-    Returns list of dicts whose structure matches the original JSON objects.
+    Query Postgres for product rows. Returns list of dicts.
+    Uses connection pool if available. Safe parameterized queries.
     """
-    if not PSYCOPG2_AVAILABLE:
-        logger.warning("psycopg2 not installed; Postgres support disabled.")
+    if not (PSYCOPG2_AVAILABLE and POSTGRES_DSN):
+        logger.debug("Postgres unavailable or DSN missing.")
         return []
 
-    if not POSTGRES_DSN:
-        logger.warning("POSTGRES_DSN not configured; skipping Postgres load.")
+    conn = _get_conn()
+    if not conn:
         return []
 
-    conn = None
     try:
-        conn = psycopg2.connect(POSTGRES_DSN)
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-
-        # Build SQL with safe parameter placeholders
         sql = """
-            SELECT
-              id,
-              name,
-              category,
-              brand,
-              model,
-              attributes::jsonb AS attributes,
-              -- convert text[] tags into JSON array (null-safe)
-              CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-              image_url,
-              description
+            SELECT id,
+                   name,
+                   category,
+                   brand,
+                   model,
+                   attributes::jsonb AS attributes,
+                   CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
+                   image_url,
+                   description
             FROM products
             ORDER BY id
         """
-        params = []
+        params: List[Any] = []
         if limit is not None:
             sql += " LIMIT %s"
             params.append(int(limit))
         if offset:
             sql += " OFFSET %s"
             params.append(int(offset))
-
         cur.execute(sql, params)
         rows = cur.fetchall()
         cur.close()
         return _rows_to_dicts(rows)
     except Exception as e:
-        logger.exception("Failed to load data from Postgres: %s", e)
+        logger.exception("Failed to load products from Postgres: %s", e)
         return []
     finally:
-        if conn:
-            try:
-                conn.close()
-            except Exception:
-                pass
+        _put_conn(conn)
 
 
-def _load_data(limit: Optional[int] = None, offset: int = 0) -> List[dict]:
-    """Load data from the configured source (Postgres or JSON)."""
-    if USE_POSTGRES:
-        pg_data = _load_postgres_data(limit=limit, offset=offset)
-        if pg_data:
-            return pg_data
-        logger.info("Falling back to local JSON data source.")
-    return _load_json_data()
+def _get_postgres_product_by_id(product_id: Any) -> Optional[dict]:
+    """Fetch single product dict by id (Postgres)."""
+    if not (PSYCOPG2_AVAILABLE and POSTGRES_DSN):
+        return None
+    conn = _get_conn()
+    if not conn:
+        return None
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        sql = """
+            SELECT id, name, category, brand, model,
+                   attributes::jsonb AS attributes,
+                   CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
+                   image_url, description
+            FROM products
+            WHERE id = %s
+            LIMIT 1
+        """
+        cur.execute(sql, (product_id,))
+        row = cur.fetchone()
+        cur.close()
+        return dict(row) if row else None
+    except Exception:
+        logger.exception("Postgres query failed for id=%r", product_id)
+        return None
+    finally:
+        _put_conn(conn)
 
 
+def _search_postgres_by_name(name: str) -> Optional[dict]:
+    """
+    Try exact then simple partial (word AND) search in Postgres.
+    Returns first matching row or None.
+    """
+    if not (PSYCOPG2_AVAILABLE and POSTGRES_DSN):
+        return None
+    lowered = name.strip().lower()
+    if not lowered:
+        return None
+
+    conn = _get_conn()
+    if not conn:
+        return None
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        # exact match
+        cur.execute("SELECT * FROM products WHERE lower(name) = %s LIMIT 1;", (lowered,))
+        row = cur.fetchone()
+        if row:
+            cur.close()
+            return dict(row)
+        # partial word-based AND (each word must be present)
+        words = [w for w in lowered.split() if w]
+        if words:
+            conditions = " AND ".join("name ILIKE %s" for _ in words)
+            params = [f"%{w}%" for w in words]
+            sql = f"SELECT * FROM products WHERE {conditions} LIMIT 1;"
+            cur.execute(sql, params)
+            row = cur.fetchone()
+            cur.close()
+            if row:
+                return dict(row)
+        cur.close()
+    except Exception:
+        logger.exception("Postgres name search failed for %r", name)
+    finally:
+        _put_conn(conn)
+    return None
+
+
+def _search_postgres_by_tag(tag: str) -> List[dict]:
+    """Return products that have the tag in their tags[] column (case-insensitive)."""
+    if not (PSYCOPG2_AVAILABLE and POSTGRES_DSN):
+        return []
+    tag = tag.strip().lower()
+    if not tag:
+        return []
+    conn = _get_conn()
+    if not conn:
+        return []
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        sql = """
+            SELECT id, name, category, brand, model,
+                   attributes::jsonb AS attributes,
+                   CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
+                   image_url, description
+            FROM products
+            WHERE EXISTS (
+              SELECT 1 FROM unnest(tags) AS t WHERE lower(t) = %s
+            )
+            ORDER BY id
+        """
+        cur.execute(sql, (tag,))
+        rows = cur.fetchall()
+        cur.close()
+        return _rows_to_dicts(rows)
+    except Exception:
+        logger.exception("Postgres tag query failed for tag=%r", tag)
+        return []
+    finally:
+        _put_conn(conn)
+
+
+# -------------------------
+# Data conversion to models
+# -------------------------
 def _to_products(data: Iterable[dict]) -> List[object]:
     """
-    Convert sequence of dicts to list of Pydantic Product instances.
-
-    We import Product at runtime to avoid circular imports.
+    Convert dicts to Pydantic Product instances (imported at runtime).
+    If Product schema import fails, returns raw dicts.
     """
     if not data:
         return []
-
     try:
-        # import locally to avoid circular import at module import time
-        from models.schemas import Product  # adjust path if your app structure differs
+        # attempt import paths commonly used in projects
+        from models.schemas import Product  # type: ignore
     except Exception:
-        # try alternative import path if app.* structure is used elsewhere
         try:
             from app.models.schemas import Product  # type: ignore
         except Exception as e:
             logger.exception("Failed to import Product schema: %s", e)
-            # As a last resort, return raw dicts
             return [item for item in data]
 
     products = []
@@ -165,131 +281,65 @@ def _to_products(data: Iterable[dict]) -> List[object]:
             products.append(Product.parse_obj(item))
         except Exception as e:
             logger.warning("Failed to parse product item into Product model: %s; item=%r", e, item)
-            # skip invalid items (or optionally append raw item)
+            # skip invalid items
     return products
 
 
+# -------------------------
+# Public repository methods
+# -------------------------
+def _load_data(limit: Optional[int] = None, offset: int = 0) -> List[dict]:
+    """Load from Postgres if enabled, else JSON fallback (or if Postgres fails)."""
+    if USE_POSTGRES:
+        pg = _load_postgres_data(limit=limit, offset=offset)
+        if pg:
+            return pg
+        logger.info("Falling back to local JSON because Postgres returned no rows or failed.")
+    # return _load_json_data()
+
+
 def get_all_products(limit: Optional[int] = None, offset: int = 0) -> List[object]:
-    """
-    Return a list of `Product` instances loaded from the configured data source.
-
-    Parameters:
-    - limit: optional maximum number of products to return (useful for pagination)
-    - offset: optional number of products to skip
-
-    Returns:
-    - List[object] where each object is an instance of the Pydantic Product model
-      (imported at runtime). If the Product model cannot be imported, raw dicts
-      are returned as a fallback.
-    """
     raw = _load_data(limit=limit, offset=offset)
     return _to_products(raw)
 
 
 def get_product_by_id(product_id: Any) -> Optional[object]:
-    """
-    Retrieve a single product by its id (exact match).
-
-    Tries Postgres lookup first (if enabled), otherwise falls back to JSON scan.
-    """
-    # If using Postgres, try a direct query to avoid pulling all products
+    """Try Postgres direct lookup, otherwise fallback to scanning JSON/models in memory."""
     if USE_POSTGRES and PSYCOPG2_AVAILABLE and POSTGRES_DSN:
-        conn = None
-        try:
-            conn = psycopg2.connect(POSTGRES_DSN)
-            cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        row = _get_postgres_product_by_id(product_id)
+        if row:
+            prods = _to_products([row])
+            return prods[0] if prods else None
+        # if Postgres query failed or returned nothing, continue to fallback
 
-            # Attempt to match numeric or string id; use parameterized query
-            sql = """
-              SELECT
-                id,
-                name,
-                category,
-                brand,
-                model,
-                attributes::jsonb AS attributes,
-                CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                image_url,
-                description
-              FROM products
-              WHERE id = %s
-              LIMIT 1;
-            """
-            cur.execute(sql, (product_id,))
-            row = cur.fetchone()
-            cur.close()
-            if row:
-                # _to_products expects an iterable of dicts; return first element
-                prods = _to_products([dict(row)])
-                return prods[0] if prods else None
-        except Exception:
-            logger.exception("Postgres query failed for id=%r; falling back to JSON", product_id)
-        finally:
-            if conn:
-                try:
-                    conn.close()
-                except Exception:
-                    pass
-
-    # fallback: scan JSON or already-loaded list
+    # fallback: scan JSON-loaded data
     products = get_all_products()
     for p in products:
         try:
             pid = getattr(p, "id", None)
         except Exception:
-            pid = None
+            pid = p.get("id") if isinstance(p, dict) else None
         if pid == product_id or str(pid) == str(product_id):
             return p
     return None
 
 
 def find_by_exact_or_partial_name(name: str) -> Optional[object]:
-    """
-    Find a product by exact or partial name using the configured data source.
+    """Find product by exact or partial name. Prefer Postgres server-side search."""
+    lowered = (name or "").strip()
+    if not lowered:
+        return None
 
-    Returns a Product instance or None.
-    """
-    lowered = name.strip().lower()
-
-    # If Postgres is available, prefer server-side LIKE queries for speed
     if USE_POSTGRES and PSYCOPG2_AVAILABLE and POSTGRES_DSN:
-        conn = None
-        try:
-            conn = psycopg2.connect(POSTGRES_DSN)
-            cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        row = _search_postgres_by_name(lowered)
+        if row:
+            prods = _to_products([row])
+            return prods[0] if prods else None
 
-            # Exact match first
-            cur.execute("SELECT * FROM products WHERE lower(name) = %s LIMIT 1;", (lowered,))
-            row = cur.fetchone()
-            if row:
-                cur.close()
-                return _to_products([dict(row)])[0]
-
-            # Word-based partial match (all words must appear in name)
-            words = [w for w in lowered.split() if w]
-            if words:
-                # Build combined ILIKE conditions safely
-                conditions = " AND ".join("name ILIKE %s" for _ in words)
-                params = [f"%{w}%" for w in words]
-                sql = f"SELECT * FROM products WHERE {conditions} LIMIT 1;"
-                cur.execute(sql, params)
-                row = cur.fetchone()
-                cur.close()
-                if row:
-                    return _to_products([dict(row)])[0]
-            cur.close()
-        except Exception:
-            logger.exception("Postgres name search failed for %r; falling back to JSON", name)
-        finally:
-            if conn:
-                try:
-                    conn.close()
-                except Exception:
-                    pass
-
-    # fallback to in-memory JSON search
+    # fallback to in-memory search
+    lowered = lowered.lower()
     products = get_all_products()
-    # exact match
+    # exact
     for p in products:
         try:
             pname = p.name
@@ -297,8 +347,7 @@ def find_by_exact_or_partial_name(name: str) -> Optional[object]:
             pname = p.get("name") if isinstance(p, dict) else None
         if pname and pname.lower() == lowered:
             return p
-
-    # partial word-based match
+    # partial words
     words = lowered.split()
     for p in products:
         try:
@@ -307,57 +356,20 @@ def find_by_exact_or_partial_name(name: str) -> Optional[object]:
             pname = (p.get("name") or "").lower() if isinstance(p, dict) else ""
         if all(word in pname for word in words):
             return p
-
     return None
 
 
 def find_by_tag(tag: str) -> List[object]:
-    """
-    Return a list of products that have `tag` in their tags list.
-    Case-insensitive match.
-
-    Uses server-side query on Postgres when available.
-    """
+    """Return products matching tag (case-insensitive)."""
     if not tag:
         return []
-
-    lowered = tag.strip().lower()
-
-    # If Postgres is available, perform server-side query
     if USE_POSTGRES and PSYCOPG2_AVAILABLE and POSTGRES_DSN:
-        conn = None
-        try:
-            conn = psycopg2.connect(POSTGRES_DSN)
-            cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        rows = _search_postgres_by_tag(tag)
+        if rows:
+            return _to_products(rows)
 
-            # Use ANY with lower() to match case-insensitively.
-            # This assumes tags is a text[] column.
-            sql = """
-              SELECT
-                id, name, category, brand, model,
-                attributes::jsonb AS attributes,
-                CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                image_url, description
-              FROM products
-              WHERE EXISTS (
-                SELECT 1 FROM unnest(tags) AS t WHERE lower(t) = %s
-              )
-              ORDER BY id;
-            """
-            cur.execute(sql, (lowered,))
-            rows = cur.fetchall()
-            cur.close()
-            return _to_products(_rows_to_dicts(rows))
-        except Exception:
-            logger.exception("Postgres tag query failed for tag=%r; falling back to JSON", tag)
-        finally:
-            if conn:
-                try:
-                    conn.close()
-                except Exception:
-                    pass
-
-    # fallback to in-memory filter
+    # fallback
+    lowered = tag.strip().lower()
     results = []
     products = get_all_products()
     for p in products:
@@ -365,24 +377,12 @@ def find_by_tag(tag: str) -> List[object]:
             tags = getattr(p, "tags", None)
         except Exception:
             tags = p.get("tags") if isinstance(p, dict) else None
-
         if not tags:
             continue
-        # tags may be list[str] or a comma-separated string; normalize
         if isinstance(tags, str):
             tag_list = [t.strip().lower() for t in tags.split(",") if t.strip()]
         else:
             tag_list = [str(t).lower() for t in tags]
-
         if lowered in tag_list:
             results.append(p)
     return results
-
-
-# --------------------
-# Postgres notes:
-# - Set USE_POSTGRES=true in config or environment variable to enable Postgres.
-# - Provide POSTGRES_DSN in app.config (e.g. "postgres://user:pass@host:5432/dbname").
-# - The products table should exist with the columns described in _load_postgres_data.
-# - psycopg2 is required for Postgres support: pip install psycopg2-binary
-# --------------------

@@ -7,5 +7,4 @@
   "MONGO_COLLECTION": "products",
   "PRODUCTS_FILE": "products.json",
   "USE_POSTGRES": true,
-  "POSTGRES_DSN": "postgresql://localhost:5432/PostgreSQL 18"
-}
+"POSTGRES_DSN" :"postgresql://postgres:postgres@localhost:5432/postgres"}
