@@ -1,5 +1,6 @@
 fastapi
 uvicorn
-google-genai
 pydantic
-pymongo
+google-genai
+psycopg2-binary
+python-dotenv

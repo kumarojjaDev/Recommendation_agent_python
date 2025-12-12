@@ -13,11 +13,13 @@ This project implements a recommendation agent that uses Google's Gemini AI to s
 The project has been reorganized into a clear folder structure:
 
 ```
-recommendation_agent/
+recommender_agent/
 ├── app/                  # FastAPI application code
-│   ├── main.py           # API endpoints and core logic
+│   ├── main.py           # API endpoints and entry point
+│   ├── agents.py         # AI and Rule-based Agents (Retriever, Builder, Scorer, Validator)
+│   ├── database_repository.py # Data access layer (Postgres/JSON)
+│   ├── domain_rules.py   # Business logic and compatibility maps
 │   ├── config.py         # Configuration loading
-│   └── mongo_repository.py # Data repository layer
 │
 ├── data/                 # Data files and configuration
 │   ├── products.json     # Product database
@@ -52,16 +54,17 @@ recommendation_agent/
 
 3. **Configuration Paths**: Data file paths updated to point to `data/` directory
 
-4. **Deployment Configuration**: `render.yaml` updated to use `app.main:app`
+4. **Universal Discovery**: Enhanced `Retriever` and `Builder` agents to find accessories via text search and support "Universal" items (Flipkart-style logic).
 
-## Running the Refactored Application
+## Running the Application
 
 ```bash
 # Set environment variables
 export GEMINI_API_KEY="your_api_key"
+export GEMINI_MODEL="models/gemini-2.0-flash"
 
-# Run with uvicorn (note the new path)
-uvicorn app.main:app --reload
+# Run with uvicorn
+python -m uvicorn app.main:app --reload
 ```
 
 ## API Endpoints
@@ -110,25 +113,40 @@ The application functionality remains identical, just better organized!
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   FastAPI       │    │  Gemini AI       │    │  Data Source    │
-│   Application   │◄──►│  Recommendation  │◄──►│  (JSON/MongoDB) │
-│                 │    │  Engine          │    │                 │
+│   (main.py)     │◄──►│  Re-Ranker       │◄──►│  (Postgres/JSON)│
+│                 │    │  Agent           │    │                 │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   API Endpoints │    │  Candidate       │    │  Product        │
-│   (/health,     │    │  Builder         │    │  Repository     │
-│    /recommend)  │    │                  │    │                 │
+│   Orchestrator  │    │  Agent Pipeline  │    │  Domain Rules   │
+│   Agent         │───►│ (Retriever,      │    │ (Compatibility, │
+│                 │    │  Builder, Val.)  │    │  Scoring)       │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
-### Core Logic Flow
+### Core Logic Flow (Orchestrated)
 
-1. **User Query Processing**: API receives product name via `/recommendations` endpoint
-2. **Product Lookup**: Searches data source for exact/partial name matches
-3. **Candidate Generation**: Builds list of potential recommendations using rule-based logic
-4. **AI Selection**: Gemini AI evaluates candidates and selects most relevant items
-5. **Response Formatting**: Returns primary product and recommendations
+1. **Retriever Agent**:
+   - Searches for Primary Product.
+   - Fetches candidates via **Category** (Same Category), **Compatible Categories** (Contextual), **Brand Loyalty**, and **Universal Text Search** (e.g. searching "iPhone 15" finding "iPhone 15 Case").
+   - Fetches "Universal" or "Generic" items if primary has no brand.
+
+2. **Candidate Builder Agent**:
+   - Filters candidates based on `COMPATIBILITY_MAP`.
+   - **Crucially**, allows **Global Bypass** for:
+     - Items matching the primary model name (e.g. "Case for X").
+     - Items marked as "Universal" or "Generic".
+
+3. **Scorer Agent**:
+   - Scores candidates deterministically (attribute match, tag overlap).
+   - Produces a top-N shortlist.
+
+4. **LLM Re-Ranker Agent** (Gemini):
+   - Re-ranks the shortlist based on semantic relevance and context.
+
+5. **Validator Agent**:
+   - Enforces final safety checks (e.g. voltage match for speakers, medical device safety).
 
 ## Use Cases
 

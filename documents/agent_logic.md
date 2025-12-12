@@ -82,30 +82,32 @@ Return ONLY valid JSON in this exact format:
    - Secondary attribute consideration (tags, use cases)
    - Contextual appropriateness
 
-## Decision Logic Flow
-
+## Decision Logic Flow (Multi-Agent)
+    
 ```mermaid
 flowchart TD
-    A[Receive Prompt] --> B[Parse Primary Product]
-    B --> C[Analyze Product Category]
-    C --> D{Is Phone?}
+    A[Orchestrator] --> B[Retriever Agent]
+    B --> C{Got Candidates?}
+    
+    C -->|Yes| D[Builder Agent]
+    C -->|No| E[Return Empty]
 
-    D -->|Yes| E[Look for Phone Accessories]
-    D -->|No| F[Look for Generic Complements]
+    D --> F[Scorer Agent]
+    F --> G[LLM Re-Ranker Agent]
+    G --> H[Validator Agent]
+    H --> I[Orchestrator Returns]
 
-    E --> G[Check Compatibility Attributes]
-    F --> H[Check Brand/Tag Overlap]
-
-    G --> I[Score Candidates by Relevance]
-    H --> I
-
-    I --> J[Select Top N Candidates]
-    J --> K[Validate Selection Constraints]
-    K --> L[Format JSON Response]
-
-    style I fill:#e1f5fe
-    style J fill:#e1f5fe
+    style G fill:#e1f5fe
+    style A fill:#fff9c4
 ```
+
+### Universal Discovery Mode
+When the **Retriever** detects a specific model name (e.g. "S24"), it performs a global text search.
+When the **Builder** sees a candidate that:
+1. Matches the primary model name (e.g. "Case for S24"), OR
+2. Is marked "Universal" or "Generic" (e.g. "Universal Charger"),
+
+It **bypasses** the strict compatibility map. This mimics **Flipkart-style** intelligence, where name relevance overrides category rules.
 
 ## Agent Involvement Points
 
