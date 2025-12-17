@@ -45,6 +45,9 @@ def to_public_product(prod: Product) -> PublicProduct:
         category=prod.category,
         brand=prod.brand,
         model=prod.model,
+        image_url=prod.image_url,
+        description=prod.description,
+        price=prod.price,
     )
 
 

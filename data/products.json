@@ -1,6 +1,6 @@
 [
   {
-    "id": 101,
+    "id": 1,
     "name": "Samsung Galaxy A57",
     "category": "phone",
     "brand": "Samsung",
@@ -18,10 +18,11 @@
       "A57"
     ],
     "image_url": "https://example.com/images/samsung-galaxy-a57-black-front.jpg",
-    "description": "Samsung Galaxy A57 Android smartphone with 6.5-inch display, 128GB storage, and USB-C charging."
+    "description": "Samsung Galaxy A57 Android smartphone with 6.5-inch display, 128GB storage, and USB-C charging.",
+    "price": 58376
   },
   {
-    "id": 102,
+    "id": 2,
     "name": "Samsung Galaxy S24",
     "category": "phone",
     "brand": "Samsung",
@@ -40,10 +41,11 @@
       "flagship"
     ],
     "image_url": "https://example.com/images/samsung-galaxy-s24-graphite-front.jpg",
-    "description": "Samsung Galaxy S24 flagship Android phone with 6.2-inch AMOLED display and 256GB storage."
+    "description": "Samsung Galaxy S24 flagship Android phone with 6.2-inch AMOLED display and 256GB storage.",
+    "price": 81959
   },
   {
-    "id": 103,
+    "id": 3,
     "name": "Apple iPhone 15",
     "category": "phone",
     "brand": "Apple",
@@ -62,10 +64,11 @@
       "iphone_15"
     ],
     "image_url": "https://example.com/images/apple-iphone-15-blue-front.jpg",
-    "description": "Apple iPhone 15 with 6.1-inch display, USB-C port, and 128GB storage in blue."
+    "description": "Apple iPhone 15 with 6.1-inch display, USB-C port, and 128GB storage in blue.",
+    "price": 13280
   },
   {
-    "id": 104,
+    "id": 4,
     "name": "Apple iPhone 14",
     "category": "phone",
     "brand": "Apple",
@@ -84,10 +87,11 @@
       "iphone_14"
     ],
     "image_url": "https://example.com/images/apple-iphone-14-midnight-front.jpg",
-    "description": "Apple iPhone 14 with 6.1-inch display, Lightning connector, and 128GB storage."
+    "description": "Apple iPhone 14 with 6.1-inch display, Lightning connector, and 128GB storage.",
+    "price": 39540
   },
   {
-    "id": 105,
+    "id": 5,
     "name": "Google Pixel 9",
     "category": "phone",
     "brand": "Google",
@@ -106,10 +110,11 @@
       "pixel_9"
     ],
     "image_url": "https://example.com/images/google-pixel-9-obsidian-front.jpg",
-    "description": "Google Pixel 9 Android smartphone with 6.3-inch OLED display and 256GB storage."
+    "description": "Google Pixel 9 Android smartphone with 6.3-inch OLED display and 256GB storage.",
+    "price": 61863
   },
   {
-    "id": 106,
+    "id": 6,
     "name": "OnePlus 12R",
     "category": "phone",
     "brand": "OnePlus",
@@ -127,10 +132,11 @@
       "12R"
     ],
     "image_url": "https://example.com/images/oneplus-12r-iron-gray-front.jpg",
-    "description": "OnePlus 12R performance Android phone with 256GB storage and fast charging."
+    "description": "OnePlus 12R performance Android phone with 256GB storage and fast charging.",
+    "price": 68765
   },
   {
-    "id": 107,
+    "id": 7,
     "name": "Xiaomi Redmi Note 13 Pro",
     "category": "phone",
     "brand": "Xiaomi",
@@ -148,10 +154,11 @@
       "redmi_note_13_pro"
     ],
     "image_url": "https://example.com/images/xiaomi-redmi-note-13-pro-blue-front.jpg",
-    "description": "Xiaomi Redmi Note 13 Pro with 6.67-inch display and 256GB storage."
+    "description": "Xiaomi Redmi Note 13 Pro with 6.67-inch display and 256GB storage.",
+    "price": 94019
   },
   {
-    "id": 108,
+    "id": 8,
     "name": "Motorola Moto G Power",
     "category": "phone",
     "brand": "Motorola",
@@ -169,10 +176,11 @@
       "moto_g_power"
     ],
     "image_url": "https://example.com/images/motorola-moto-g-power-silver-front.jpg",
-    "description": "Motorola Moto G Power Android phone with long battery life and 128GB storage."
+    "description": "Motorola Moto G Power Android phone with long battery life and 128GB storage.",
+    "price": 44621
   },
   {
-    "id": 201,
+    "id": 9,
     "name": "Samsung A57 Shockproof Pouch",
     "category": "phone_case",
     "brand": "Samsung",
@@ -191,10 +199,11 @@
       "shockproof"
     ],
     "image_url": "https://example.com/images/samsung-a57-shockproof-pouch-black.jpg",
-    "description": "Shockproof TPU pouch designed for Samsung Galaxy A57, offering drop and scratch protection."
+    "description": "Shockproof TPU pouch designed for Samsung Galaxy A57, offering drop and scratch protection.",
+    "price": 38499
   },
   {
-    "id": 202,
+    "id": 10,
     "name": "Samsung A57 Tempered Glass",
     "category": "screen_guard",
     "brand": "Samsung",
@@ -212,10 +221,11 @@
       "screen_protector"
     ],
     "image_url": "https://example.com/images/samsung-a57-tempered-glass.jpg",
-    "description": "9H hardness tempered glass screen protector for Samsung Galaxy A57."
+    "description": "9H hardness tempered glass screen protector for Samsung Galaxy A57.",
+    "price": 51456
   },
   {
-    "id": 203,
+    "id": 11,
     "name": "Samsung 25W USB-C Charger",
     "category": "charger",
     "brand": "Samsung",
@@ -232,10 +242,11 @@
       "25w"
     ],
     "image_url": "https://example.com/images/samsung-25w-usbc-charger.jpg",
-    "description": "Official Samsung 25W USB-C fast charger compatible with Samsung Galaxy phones that support USB-C."
+    "description": "Official Samsung 25W USB-C fast charger compatible with Samsung Galaxy phones that support USB-C.",
+    "price": 76441
   },
   {
-    "id": 204,
+    "id": 12,
     "name": "Samsung A57 Silicone Back Cover",
     "category": "phone_case",
     "brand": "Samsung",
@@ -254,10 +265,11 @@
       "silicone"
     ],
     "image_url": "https://example.com/images/samsung-a57-silicone-case-black.jpg",
-    "description": "Slim matte silicone back cover for Samsung Galaxy A57 with precise cut-outs."
+    "description": "Slim matte silicone back cover for Samsung Galaxy A57 with precise cut-outs.",
+    "price": 33713
   },
   {
-    "id": 205,
+    "id": 13,
     "name": "Samsung A57 Camera Lens Protector",
     "category": "camera_protector",
     "brand": "Samsung",
@@ -273,10 +285,11 @@
       "samsung"
     ],
     "image_url": "https://example.com/images/samsung-a57-camera-lens-protector.jpg",
-    "description": "Tempered glass camera lens protector for Samsung Galaxy A57 to prevent scratches and cracks."
+    "description": "Tempered glass camera lens protector for Samsung Galaxy A57 to prevent scratches and cracks.",
+    "price": 92493
   },
   {
-    "id": 206,
+    "id": 14,
     "name": "Samsung A57 USB-C Cable 1m",
     "category": "cable",
     "brand": "Samsung",
@@ -293,10 +306,11 @@
       "samsung"
     ],
     "image_url": "https://example.com/images/samsung-usbc-cable-1m.jpg",
-    "description": "1-meter USB-C to USB-C cable suitable for charging and data transfer for Samsung Galaxy A57 and other USB-C devices."
+    "description": "1-meter USB-C to USB-C cable suitable for charging and data transfer for Samsung Galaxy A57 and other USB-C devices.",
+    "price": 88561
   },
   {
-    "id": 207,
+    "id": 15,
     "name": "Samsung Wireless Charger Pad",
     "category": "wireless_charger",
     "brand": "Samsung",
@@ -312,10 +326,11 @@
       "Qi"
     ],
     "image_url": "https://example.com/images/samsung-wireless-charger-pad.jpg",
-    "description": "Samsung Qi wireless charging pad with up to 15W fast charging for compatible Galaxy phones and accessories."
+    "description": "Samsung Qi wireless charging pad with up to 15W fast charging for compatible Galaxy phones and accessories.",
+    "price": 85515
   },
   {
-    "id": 208,
+    "id": 16,
     "name": "Galaxy Buds FE",
     "category": "earbuds",
     "brand": "Samsung",
@@ -332,10 +347,11 @@
       "galaxy_buds"
     ],
     "image_url": "https://example.com/images/samsung-galaxy-buds-fe-white.jpg",
-    "description": "Samsung Galaxy Buds FE true wireless earbuds with active noise cancellation and long battery life."
+    "description": "Samsung Galaxy Buds FE true wireless earbuds with active noise cancellation and long battery life.",
+    "price": 23057
   },
   {
-    "id": 209,
+    "id": 17,
     "name": "Samsung Galaxy S24 Silicone Case",
     "category": "phone_case",
     "brand": "Samsung",
@@ -352,10 +368,11 @@
       "silicone"
     ],
     "image_url": "https://example.com/images/samsung-s24-silicone-case-black.jpg",
-    "description": "Official silicone case for Samsung Galaxy S24 offering a soft-touch finish and grip."
+    "description": "Official silicone case for Samsung Galaxy S24 offering a soft-touch finish and grip.",
+    "price": 57642
   },
   {
-    "id": 210,
+    "id": 18,
     "name": "Samsung Galaxy S24 Rugged Case",
     "category": "phone_case",
     "brand": "Samsung",
@@ -372,10 +389,11 @@
       "rugged"
     ],
     "image_url": "https://example.com/images/samsung-s24-rugged-case.jpg",
-    "description": "Rugged protective case for Samsung Galaxy S24 with reinforced corners and raised edges."
+    "description": "Rugged protective case for Samsung Galaxy S24 with reinforced corners and raised edges.",
+    "price": 43825
   },
   {
-    "id": 211,
+    "id": 19,
     "name": "Samsung Galaxy S24 Tempered Glass",
     "category": "screen_guard",
     "brand": "Samsung",
@@ -392,10 +410,11 @@
       "S24"
     ],
     "image_url": "https://example.com/images/samsung-s24-tempered-glass.jpg",
-    "description": "Edge-to-edge 9H tempered glass screen protector for Samsung Galaxy S24."
+    "description": "Edge-to-edge 9H tempered glass screen protector for Samsung Galaxy S24.",
+    "price": 29863
   },
   {
-    "id": 212,
+    "id": 20,
     "name": "Samsung 45W USB-C Super Fast Charger",
     "category": "charger",
     "brand": "Samsung",
@@ -412,10 +431,11 @@
       "samsung"
     ],
     "image_url": "https://example.com/images/samsung-45w-usbc-charger.jpg",
-    "description": "45W USB-C Super Fast Charger from Samsung for high-speed charging of compatible Galaxy phones including S24."
+    "description": "45W USB-C Super Fast Charger from Samsung for high-speed charging of compatible Galaxy phones including S24.",
+    "price": 65044
   },
   {
-    "id": 213,
+    "id": 21,
     "name": "Samsung S24 Car Mount Holder",
     "category": "car_mount",
     "brand": "Samsung",
@@ -431,10 +451,11 @@
       "accessories"
     ],
     "image_url": "https://example.com/images/samsung-s24-car-mount.jpg",
-    "description": "Adjustable air vent car mount compatible with Samsung Galaxy S24 and similar-sized smartphones."
+    "description": "Adjustable air vent car mount compatible with Samsung Galaxy S24 and similar-sized smartphones.",
+    "price": 71535
   },
   {
-    "id": 214,
+    "id": 22,
     "name": "Apple iPhone 15 Silicone MagSafe Case",
     "category": "phone_case",
     "brand": "Apple",
@@ -452,10 +473,11 @@
       "magsafe"
     ],
     "image_url": "https://example.com/images/iphone-15-silicone-magsafe-case-blue.jpg",
-    "description": "Official Apple silicone case with MagSafe for iPhone 15, offering a soft-touch finish and magnetic accessories support."
+    "description": "Official Apple silicone case with MagSafe for iPhone 15, offering a soft-touch finish and magnetic accessories support.",
+    "price": 24165
   },
   {
-    "id": 215,
+    "id": 23,
     "name": "Apple iPhone 15 Clear Case",
     "category": "phone_case",
     "brand": "Apple",
@@ -472,10 +494,11 @@
       "clear_case"
     ],
     "image_url": "https://example.com/images/iphone-15-clear-case.jpg",
-    "description": "Transparent clear case for iPhone 15, showcasing the phone's color while providing protection."
+    "description": "Transparent clear case for iPhone 15, showcasing the phone's color while providing protection.",
+    "price": 52747
   },
   {
-    "id": 216,
+    "id": 24,
     "name": "Apple iPhone 15 Tempered Glass",
     "category": "screen_guard",
     "brand": "Apple",
@@ -492,10 +515,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/iphone-15-tempered-glass.jpg",
-    "description": "Edge-to-edge tempered glass screen protector designed for Apple iPhone 15."
+    "description": "Edge-to-edge tempered glass screen protector designed for Apple iPhone 15.",
+    "price": 31416
   },
   {
-    "id": 217,
+    "id": 25,
     "name": "iPhone 15 Camera Lens Protector",
     "category": "camera_protector",
     "brand": "Apple",
@@ -511,10 +535,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/iphone-15-camera-lens-protector.jpg",
-    "description": "Tempered glass camera lens protector for iPhone 15 to guard against scratches and dust."
+    "description": "Tempered glass camera lens protector for iPhone 15 to guard against scratches and dust.",
+    "price": 72702
   },
   {
-    "id": 218,
+    "id": 26,
     "name": "Apple 20W USB-C Power Adapter",
     "category": "charger",
     "brand": "Apple",
@@ -531,10 +556,11 @@
       "usb_c"
     ],
     "image_url": "https://example.com/images/apple-20w-usbc-power-adapter.jpg",
-    "description": "Official Apple 20W USB-C power adapter suitable for fast charging iPhone 15 and other Apple devices."
+    "description": "Official Apple 20W USB-C power adapter suitable for fast charging iPhone 15 and other Apple devices.",
+    "price": 95545
   },
   {
-    "id": 219,
+    "id": 27,
     "name": "Apple MagSafe Charger",
     "category": "wireless_charger",
     "brand": "Apple",
@@ -549,10 +575,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/apple-magsafe-charger.jpg",
-    "description": "Apple MagSafe Charger for iPhone 12 and later, providing efficient wireless charging with magnetic alignment."
+    "description": "Apple MagSafe Charger for iPhone 12 and later, providing efficient wireless charging with magnetic alignment.",
+    "price": 21226
   },
   {
-    "id": 220,
+    "id": 28,
     "name": "USB-C to USB-C Cable 2m for iPhone 15",
     "category": "cable",
     "brand": "Apple",
@@ -569,10 +596,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/apple-usbc-to-usbc-cable-2m.jpg",
-    "description": "2-meter USB-C to USB-C cable for charging and syncing iPhone 15 and other USB-C Apple devices."
+    "description": "2-meter USB-C to USB-C cable for charging and syncing iPhone 15 and other USB-C Apple devices.",
+    "price": 14180
   },
   {
-    "id": 221,
+    "id": 29,
     "name": "Apple iPhone 14 Silicone Case",
     "category": "phone_case",
     "brand": "Apple",
@@ -589,10 +617,11 @@
       "silicone"
     ],
     "image_url": "https://example.com/images/iphone-14-silicone-case-midnight.jpg",
-    "description": "Soft silicone case for Apple iPhone 14 offering everyday protection and grip."
+    "description": "Soft silicone case for Apple iPhone 14 offering everyday protection and grip.",
+    "price": 83170
   },
   {
-    "id": 222,
+    "id": 30,
     "name": "Apple iPhone 14 Leather Case",
     "category": "phone_case",
     "brand": "Apple",
@@ -609,10 +638,11 @@
       "leather"
     ],
     "image_url": "https://example.com/images/iphone-14-leather-case-brown.jpg",
-    "description": "Premium leather back case for iPhone 14 that develops a natural patina over time."
+    "description": "Premium leather back case for iPhone 14 that develops a natural patina over time.",
+    "price": 14116
   },
   {
-    "id": 223,
+    "id": 31,
     "name": "Apple iPhone 14 Tempered Glass",
     "category": "screen_guard",
     "brand": "Apple",
@@ -628,10 +658,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/iphone-14-tempered-glass.jpg",
-    "description": "Tempered glass screen protector designed to fit Apple iPhone 14."
+    "description": "Tempered glass screen protector designed to fit Apple iPhone 14.",
+    "price": 73703
   },
   {
-    "id": 224,
+    "id": 32,
     "name": "Apple Lightning to USB-C Cable 1m",
     "category": "cable",
     "brand": "Apple",
@@ -648,10 +679,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/apple-lightning-to-usbc-cable-1m.jpg",
-    "description": "1-meter Lightning to USB-C cable for charging and syncing iPhone 14 and other Lightning devices."
+    "description": "1-meter Lightning to USB-C cable for charging and syncing iPhone 14 and other Lightning devices.",
+    "price": 67220
   },
   {
-    "id": 225,
+    "id": 33,
     "name": "Apple EarPods with Lightning Connector",
     "category": "earphones",
     "brand": "Apple",
@@ -667,10 +699,11 @@
       "lightning"
     ],
     "image_url": "https://example.com/images/apple-earpods-lightning.jpg",
-    "description": "Wired EarPods with Lightning connector compatible with iPhone models including iPhone 14."
+    "description": "Wired EarPods with Lightning connector compatible with iPhone models including iPhone 14.",
+    "price": 44082
   },
   {
-    "id": 226,
+    "id": 34,
     "name": "MagSafe Battery Pack",
     "category": "power_bank",
     "brand": "Apple",
@@ -686,10 +719,11 @@
       "apple"
     ],
     "image_url": "https://example.com/images/apple-magsafe-battery-pack.jpg",
-    "description": "Compact MagSafe Battery Pack that magnetically attaches to iPhone 12 and later for on-the-go charging."
+    "description": "Compact MagSafe Battery Pack that magnetically attaches to iPhone 12 and later for on-the-go charging.",
+    "price": 41669
   },
   {
-    "id": 227,
+    "id": 35,
     "name": "Google Pixel 9 Fabric Case",
     "category": "phone_case",
     "brand": "Google",
@@ -706,10 +740,11 @@
       "fabric"
     ],
     "image_url": "https://example.com/images/google-pixel-9-fabric-case.jpg",
-    "description": "Fabric case for Google Pixel 9 offering a soft exterior and reliable protection."
+    "description": "Fabric case for Google Pixel 9 offering a soft exterior and reliable protection.",
+    "price": 19813
   },
   {
-    "id": 228,
+    "id": 36,
     "name": "Google Pixel 9 Rugged Case",
     "category": "phone_case",
     "brand": "Google",
@@ -726,10 +761,11 @@
       "rugged"
     ],
     "image_url": "https://example.com/images/google-pixel-9-rugged-case.jpg",
-    "description": "Heavy-duty rugged case for Google Pixel 9 designed for impact resistance."
+    "description": "Heavy-duty rugged case for Google Pixel 9 designed for impact resistance.",
+    "price": 47576
   },
   {
-    "id": 229,
+    "id": 37,
     "name": "Google Pixel 9 Tempered Glass",
     "category": "screen_guard",
     "brand": "Google",
@@ -745,10 +781,11 @@
       "google"
     ],
     "image_url": "https://example.com/images/google-pixel-9-tempered-glass.jpg",
-    "description": "Tempered glass screen protector tailored for Google Pixel 9."
+    "description": "Tempered glass screen protector tailored for Google Pixel 9.",
+    "price": 70931
   },
   {
-    "id": 230,
+    "id": 38,
     "name": "Google 30W USB-C Charger",
     "category": "charger",
     "brand": "Google",
@@ -765,10 +802,11 @@
       "30w"
     ],
     "image_url": "https://example.com/images/google-30w-usbc-charger.jpg",
-    "description": "Google 30W USB-C power adapter for fast charging Pixel phones and other USB-C devices."
+    "description": "Google 30W USB-C power adapter for fast charging Pixel phones and other USB-C devices.",
+    "price": 73928
   },
   {
-    "id": 231,
+    "id": 39,
     "name": "Google Pixel Stand Wireless Charger",
     "category": "wireless_charger",
     "brand": "Google",
@@ -783,10 +821,11 @@
       "pixel_stand"
     ],
     "image_url": "https://example.com/images/google-pixel-stand-wireless-charger.jpg",
-    "description": "Pixel Stand wireless charger for Google Pixel phones with upright stand design."
+    "description": "Pixel Stand wireless charger for Google Pixel phones with upright stand design.",
+    "price": 76355
   },
   {
-    "id": 232,
+    "id": 40,
     "name": "USB-C Wired Earbuds for Pixel",
     "category": "earphones",
     "brand": "Google",
@@ -802,10 +841,11 @@
       "pixel"
     ],
     "image_url": "https://example.com/images/usb-c-wired-earbuds-black.jpg",
-    "description": "USB-C wired earbuds compatible with Google Pixel 9 and other USB-C phones."
+    "description": "USB-C wired earbuds compatible with Google Pixel 9 and other USB-C phones.",
+    "price": 92599
   },
   {
-    "id": 233,
+    "id": 41,
     "name": "OnePlus 12R Sandstone Case",
     "category": "phone_case",
     "brand": "OnePlus",
@@ -822,10 +862,11 @@
       "sandstone"
     ],
     "image_url": "https://example.com/images/oneplus-12r-sandstone-case.jpg",
-    "description": "Signature sandstone finish case for OnePlus 12R providing a grippy texture."
+    "description": "Signature sandstone finish case for OnePlus 12R providing a grippy texture.",
+    "price": 58832
   },
   {
-    "id": 234,
+    "id": 42,
     "name": "OnePlus 12R Transparent Case",
     "category": "phone_case",
     "brand": "OnePlus",
@@ -842,10 +883,11 @@
       "transparent"
     ],
     "image_url": "https://example.com/images/oneplus-12r-transparent-case.jpg",
-    "description": "Clear TPU case for OnePlus 12R to showcase the phone design while protecting it."
+    "description": "Clear TPU case for OnePlus 12R to showcase the phone design while protecting it.",
+    "price": 43514
   },
   {
-    "id": 235,
+    "id": 43,
     "name": "OnePlus 12R Tempered Glass",
     "category": "screen_guard",
     "brand": "OnePlus",
@@ -861,10 +903,11 @@
       "12R"
     ],
     "image_url": "https://example.com/images/oneplus-12r-tempered-glass.jpg",
-    "description": "Tempered glass screen protector made for OnePlus 12R."
+    "description": "Tempered glass screen protector made for OnePlus 12R.",
+    "price": 76197
   },
   {
-    "id": 236,
+    "id": 44,
     "name": "OnePlus 80W SUPERVOOC Charger",
     "category": "charger",
     "brand": "OnePlus",
@@ -881,10 +924,11 @@
       "80w"
     ],
     "image_url": "https://example.com/images/oneplus-80w-supervooc-charger.jpg",
-    "description": "80W SUPERVOOC fast charger for OnePlus phones including OnePlus 12R."
+    "description": "80W SUPERVOOC fast charger for OnePlus phones including OnePlus 12R.",
+    "price": 10511
   },
   {
-    "id": 237,
+    "id": 45,
     "name": "OnePlus Car Charger 50W",
     "category": "car_charger",
     "brand": "OnePlus",
@@ -900,10 +944,11 @@
       "fast_charge"
     ],
     "image_url": "https://example.com/images/oneplus-50w-car-charger.jpg",
-    "description": "OnePlus car charger with 50W output for fast charging on the go."
+    "description": "OnePlus car charger with 50W output for fast charging on the go.",
+    "price": 63571
   },
   {
-    "id": 238,
+    "id": 46,
     "name": "OnePlus Buds 3",
     "category": "earbuds",
     "brand": "OnePlus",
@@ -919,10 +964,11 @@
       "oneplus"
     ],
     "image_url": "https://example.com/images/oneplus-buds-3.jpg",
-    "description": "OnePlus Buds 3 true wireless earbuds with active noise cancellation."
+    "description": "OnePlus Buds 3 true wireless earbuds with active noise cancellation.",
+    "price": 94974
   },
   {
-    "id": 239,
+    "id": 47,
     "name": "Xiaomi Redmi Note 13 Pro Case",
     "category": "phone_case",
     "brand": "Xiaomi",
@@ -938,10 +984,11 @@
       "redmi_note_13_pro"
     ],
     "image_url": "https://example.com/images/xiaomi-redmi-note-13-pro-case.jpg",
-    "description": "Flexible TPU case for Xiaomi Redmi Note 13 Pro."
+    "description": "Flexible TPU case for Xiaomi Redmi Note 13 Pro.",
+    "price": 52970
   },
   {
-    "id": 240,
+    "id": 48,
     "name": "Xiaomi Redmi Note 13 Pro Tempered Glass",
     "category": "screen_guard",
     "brand": "Xiaomi",
@@ -957,10 +1004,11 @@
       "redmi_note_13_pro"
     ],
     "image_url": "https://example.com/images/xiaomi-redmi-note-13-pro-tempered-glass.jpg",
-    "description": "Tempered glass screen guard for Xiaomi Redmi Note 13 Pro."
+    "description": "Tempered glass screen guard for Xiaomi Redmi Note 13 Pro.",
+    "price": 93907
   },
   {
-    "id": 241,
+    "id": 49,
     "name": "Moto G Power Protective Case",
     "category": "phone_case",
     "brand": "Motorola",
@@ -976,10 +1024,11 @@
       "motorola"
     ],
     "image_url": "https://example.com/images/moto-g-power-protective-case.jpg",
-    "description": "Protective TPU case for Motorola Moto G Power with raised edges."
+    "description": "Protective TPU case for Motorola Moto G Power with raised edges.",
+    "price": 65989
   },
   {
-    "id": 306,
+    "id": 50,
     "name": "Digital Blood Pressure Monitor",
     "category": "medical_equipment",
     "brand": "Omron",
@@ -996,10 +1045,11 @@
       "omron"
     ],
     "image_url": "https://example.com/images/omron-hem-7120-bp-monitor.jpg",
-    "description": "Automatic digital blood pressure monitor with one-touch operation and large LCD display for home use."
+    "description": "Automatic digital blood pressure monitor with one-touch operation and large LCD display for home use.",
+    "price": 50410
   },
   {
-    "id": 307,
+    "id": 51,
     "name": "Finger Pulse Oximeter",
     "category": "medical_equipment",
     "brand": "DrTrust",
@@ -1019,10 +1069,11 @@
       "home_health"
     ],
     "image_url": "https://example.com/images/drtrust-finger-pulse-oximeter.jpg",
-    "description": "Compact finger pulse oximeter with OLED display showing SpO2 and pulse rate — ideal for quick checks."
+    "description": "Compact finger pulse oximeter with OLED display showing SpO2 and pulse rate — ideal for quick checks.",
+    "price": 33969
   },
   {
-    "id": 308,
+    "id": 52,
     "name": "Glucometer Kit",
     "category": "medical_equipment",
     "brand": "Accu-Chek",
@@ -1043,10 +1094,11 @@
       "test_strips"
     ],
     "image_url": "https://example.com/images/accu-chek-guide-glucometer-kit.jpg",
-    "description": "Complete glucometer kit with test strips and lancing device; stores up to 500 readings for trend review."
+    "description": "Complete glucometer kit with test strips and lancing device; stores up to 500 readings for trend review.",
+    "price": 62456
   },
   {
-    "id": 309,
+    "id": 53,
     "name": "Nebulizer Compressor Machine",
     "category": "medical_equipment",
     "brand": "Philips",
@@ -1063,10 +1115,11 @@
       "philips"
     ],
     "image_url": "https://example.com/images/philips-innospire-nebulizer.jpg",
-    "description": "Compact compressor nebulizer for respiratory therapy with mask and mouthpiece included."
+    "description": "Compact compressor nebulizer for respiratory therapy with mask and mouthpiece included.",
+    "price": 78877
   },
   {
-    "id": 310,
+    "id": 54,
     "name": "Digital Infrared Thermometer",
     "category": "medical_equipment",
     "brand": "Braun",
@@ -1083,10 +1136,11 @@
       "fever"
     ],
     "image_url": "https://example.com/images/braun-thermoscan-7-thermometer.jpg",
-    "description": "Non-contact infrared forehead thermometer for fast and hygienic temperature readings."
+    "description": "Non-contact infrared forehead thermometer for fast and hygienic temperature readings.",
+    "price": 11930
   },
   {
-    "id": 311,
+    "id": 55,
     "name": "First Aid Kit - 150 Pieces",
     "category": "medical_supplies",
     "brand": "Lifeline",
@@ -1106,10 +1160,11 @@
       "emergency_kit"
     ],
     "image_url": "https://example.com/images/lifeline-150-piece-first-aid-kit.jpg",
-    "description": "Comprehensive 150-piece first aid kit with bandages, antiseptics, scissors, and emergency supplies."
+    "description": "Comprehensive 150-piece first aid kit with bandages, antiseptics, scissors, and emergency supplies.",
+    "price": 98927
   },
   {
-    "id": 312,
+    "id": 56,
     "name": "Voltage Stabilizer - Refrigerator",
     "category": "electrical_device",
     "brand": "V-Guard",
@@ -1126,10 +1181,11 @@
       "home_appliance"
     ],
     "image_url": "https://example.com/images/vguard-refrigerator-stabilizer-1000va.jpg",
-    "description": "Voltage stabilizer designed to protect refrigerators from voltage fluctuations with auto-restart feature."
+    "description": "Voltage stabilizer designed to protect refrigerators from voltage fluctuations with auto-restart feature.",
+    "price": 76071
   },
   {
-    "id": 313,
+    "id": 57,
     "name": "Home Inverter (12V, 800W)",
     "category": "electrical_device",
     "brand": "Luminous",
@@ -1145,10 +1201,11 @@
       "luminous"
     ],
     "image_url": "https://example.com/images/luminous-ecovolt-800-inverter.jpg",
-    "description": "800W home inverter for backup power with battery charging and overload protection."
+    "description": "800W home inverter for backup power with battery charging and overload protection.",
+    "price": 11769
   },
   {
-    "id": 314,
+    "id": 58,
     "name": "Surge Protector Power Strip - 6 Sockets",
     "category": "electrical_accessory",
     "brand": "Belkin",
@@ -1165,10 +1222,11 @@
       "accessory"
     ],
     "image_url": "https://example.com/images/belkin-6-socket-surge-protector.jpg",
-    "description": "6-socket surge protector with 2 USB ports and 2000J surge absorption to protect electronics."
+    "description": "6-socket surge protector with 2 USB ports and 2000J surge absorption to protect electronics.",
+    "price": 87968
   },
   {
-    "id": 315,
+    "id": 59,
     "name": "Portable Oxygen Concentrator",
     "category": "medical_equipment",
     "brand": "Drive DeVilbiss",
@@ -1188,10 +1246,11 @@
       "portable"
     ],
     "image_url": "https://example.com/images/drive-devilbiss-igo2-oxygen-concentrator.jpg",
-    "description": "Lightweight portable oxygen concentrator providing continuous oxygen flow with battery operation."
+    "description": "Lightweight portable oxygen concentrator providing continuous oxygen flow with battery operation.",
+    "price": 32494
   },
   {
-    "id": 316,
+    "id": 60,
     "name": "Electric Kettle - 1.7L",
     "category": "home_appliance",
     "brand": "Prestige",
@@ -1207,10 +1266,11 @@
       "prestige"
     ],
     "image_url": "https://example.com/images/prestige-1-7l-electric-kettle.jpg",
-    "description": "Stainless steel electric kettle with auto shut-off and boil-dry protection for safe everyday use."
+    "description": "Stainless steel electric kettle with auto shut-off and boil-dry protection for safe everyday use.",
+    "price": 35585
   },
   {
-    "id": 317,
+    "id": 61,
     "name": "Induction Cooktop - 2000W",
     "category": "home_appliance",
     "brand": "Philips",
@@ -1229,10 +1289,11 @@
       "philips"
     ],
     "image_url": "https://example.com/images/philips-2000w-induction-cooktop.jpg",
-    "description": "2000W induction cooktop with precise temperature control and safety features for modern kitchens."
+    "description": "2000W induction cooktop with precise temperature control and safety features for modern kitchens.",
+    "price": 90368
   },
   {
-    "id": 318,
+    "id": 62,
     "name": "Ceiling Fan - 1200mm Sweep",
     "category": "electrical_device",
     "brand": "Havells",
@@ -1248,10 +1309,11 @@
       "havells"
     ],
     "image_url": "https://example.com/images/havells-stealth-ceiling-fan-1200mm.jpg",
-    "description": "Silent and efficient 1200mm ceiling fan with aerodynamic blades for powerful airflow."
+    "description": "Silent and efficient 1200mm ceiling fan with aerodynamic blades for powerful airflow.",
+    "price": 40988
   },
   {
-    "id": 319,
+    "id": 63,
     "name": "LED Emergency Light with Inverter",
     "category": "electrical_device",
     "brand": "Syska",
@@ -1267,10 +1329,11 @@
       "power_backup"
     ],
     "image_url": "https://example.com/images/syska-led-emergency-light.jpg",
-    "description": "Wall-mount LED emergency light with built-in inverter supplying hours of illumination during power cuts."
+    "description": "Wall-mount LED emergency light with built-in inverter supplying hours of illumination during power cuts.",
+    "price": 48569
   },
   {
-    "id": 320,
+    "id": 64,
     "name": "Rechargeable Exam Light",
     "category": "medical_accessory",
     "brand": "Generic",
@@ -1290,10 +1353,11 @@
       "rechargeable"
     ],
     "image_url": "https://example.com/images/rechargeable-exam-light.jpg",
-    "description": "Portable rechargeable LED exam light suitable for clinical exams and laboratory work."
+    "description": "Portable rechargeable LED exam light suitable for clinical exams and laboratory work.",
+    "price": 61007
   },
   {
-    "id": 321,
+    "id": 65,
     "name": "Handheld ECG Monitor",
     "category": "medical_equipment",
     "brand": "Kardia",
@@ -1310,10 +1374,11 @@
       "cardiac"
     ],
     "image_url": "https://example.com/images/kardia-handheld-ecg.jpg",
-    "description": "Portable single-lead ECG monitor with Bluetooth connectivity to record and share cardiac readings."
+    "description": "Portable single-lead ECG monitor with Bluetooth connectivity to record and share cardiac readings.",
+    "price": 70640
   },
   {
-    "id": 322,
+    "id": 66,
     "name": "Surgical Face Masks - Box of 50",
     "category": "medical_supplies",
     "brand": "HygienePro",
@@ -1331,10 +1396,11 @@
       "medical_supplies"
     ],
     "image_url": "https://example.com/images/surgical-face-masks-50-box.jpg",
-    "description": "Box of 50 disposable 3-ply surgical masks suitable for clinic and everyday protection."
+    "description": "Box of 50 disposable 3-ply surgical masks suitable for clinic and everyday protection.",
+    "price": 53740
   },
   {
-    "id": 323,
+    "id": 67,
     "name": "CPAP Machine (Auto-Adjusting)",
     "category": "medical_equipment",
     "brand": "ResMed",
@@ -1353,10 +1419,11 @@
       "resmed"
     ],
     "image_url": "https://example.com/images/resmed-airsense-10-cpap.jpg",
-    "description": "Auto-adjusting CPAP machine with humidifier for comfortable long-term sleep apnea therapy."
+    "description": "Auto-adjusting CPAP machine with humidifier for comfortable long-term sleep apnea therapy.",
+    "price": 59356
   },
   {
-    "id": 324,
+    "id": 68,
     "name": "Electric Drill - Cordless (18V)",
     "category": "power_tool",
     "brand": "Bosch",
@@ -1375,10 +1442,11 @@
       "bosch"
     ],
     "image_url": "https://example.com/images/bosch-18v-cordless-drill.jpg",
-    "description": "Versatile 18V cordless drill/driver with compact design and lithium-ion battery for DIY and professional jobs."
+    "description": "Versatile 18V cordless drill/driver with compact design and lithium-ion battery for DIY and professional jobs.",
+    "price": 26029
   },
   {
-    "id": 325,
+    "id": 69,
     "name": "Portable UPS - 600VA",
     "category": "electrical_device",
     "brand": "APC",
@@ -1397,10 +1465,11 @@
       "power_backup"
     ],
     "image_url": "https://example.com/images/apc-be600-ups-600va.jpg",
-    "description": "Compact 600VA UPS with surge protection and battery backup for home routers, modems, and PCs."
+    "description": "Compact 600VA UPS with surge protection and battery backup for home routers, modems, and PCs.",
+    "price": 57058
   },
   {
-    "id": 326,
+    "id": 70,
     "name": "Ear Thermometer Probe Covers - Pack of 100",
     "category": "medical_accessory",
     "brand": "Generic",
@@ -1416,10 +1485,11 @@
       "disposable"
     ],
     "image_url": "https://example.com/images/ear-thermometer-probe-covers-100.jpg",
-    "description": "Pack of 100 disposable probe covers for ear thermometers to ensure hygienic temperature readings."
+    "description": "Pack of 100 disposable probe covers for ear thermometers to ensure hygienic temperature readings.",
+    "price": 33289
   },
   {
-    "id": 327,
+    "id": 71,
     "name": "Rechargeable LED Worklight - 2000lm",
     "category": "tool_accessory",
     "brand": "Milwaukee",
@@ -1440,10 +1510,11 @@
       "milwaukee"
     ],
     "image_url": "https://example.com/images/milwaukee-rechargeable-led-worklight.jpg",
-    "description": "High-output rechargeable LED worklight with multiple brightness modes for jobsite and home use."
+    "description": "High-output rechargeable LED worklight with multiple brightness modes for jobsite and home use.",
+    "price": 13504
   },
   {
-    "id": 328,
+    "id": 72,
     "name": "AA Alkaline Batteries - Pack of 24",
     "category": "accessory",
     "brand": "Duracell",
@@ -1459,10 +1530,11 @@
       "duracell"
     ],
     "image_url": "https://example.com/images/duracell-aa-24-pack.jpg",
-    "description": "Pack of 24 AA alkaline batteries suitable for remotes, toys, and household electronics."
+    "description": "Pack of 24 AA alkaline batteries suitable for remotes, toys, and household electronics.",
+    "price": 42826
   },
   {
-    "id": 329,
+    "id": 73,
     "name": "Smart Voltage Monitor Plug",
     "category": "electrical_accessory",
     "brand": "TP-Link",
@@ -1478,10 +1550,11 @@
       "tplink"
     ],
     "image_url": "https://example.com/images/tplink-hs110-smart-plug.jpg",
-    "description": "Wi-Fi smart plug with energy monitoring and remote control via mobile app for home automation."
+    "description": "Wi-Fi smart plug with energy monitoring and remote control via mobile app for home automation.",
+    "price": 94053
   },
   {
-    "id": 330,
+    "id": 74,
     "name": "Medical Grade Disposable Gloves - Box of 100",
     "category": "medical_supplies",
     "brand": "SafeHands",
@@ -1499,10 +1572,11 @@
       "nitrile"
     ],
     "image_url": "https://example.com/images/nitrile-disposable-gloves-100-box.jpg",
-    "description": "Box of 100 medical-grade nitrile disposable gloves — powder-free and suitable for clinical and lab use."
+    "description": "Box of 100 medical-grade nitrile disposable gloves — powder-free and suitable for clinical and lab use.",
+    "price": 72732
   },
   {
-    "id": 242,
+    "id": 75,
     "name": "Moto G Power Tempered Glass",
     "category": "screen_guard",
     "brand": "Generic",
@@ -1518,10 +1592,11 @@
       "motorola"
     ],
     "image_url": "https://example.com/images/moto-g-power-tempered-glass.jpg",
-    "description": "Tempered glass screen protector for Motorola Moto G Power."
+    "description": "Tempered glass screen protector for Motorola Moto G Power.",
+    "price": 80569
   },
   {
-    "id": 243,
+    "id": 76,
     "name": "Motorola 20W USB-C Charger",
     "category": "charger",
     "brand": "Motorola",
@@ -1537,10 +1612,11 @@
       "usb_c"
     ],
     "image_url": "https://example.com/images/motorola-20w-usbc-charger.jpg",
-    "description": "20W USB-C charger for Motorola smartphones including Moto G Power."
+    "description": "20W USB-C charger for Motorola smartphones including Moto G Power.",
+    "price": 63211
   },
   {
-    "id": 244,
+    "id": 77,
     "name": "10000mAh Universal Power Bank",
     "category": "power_bank",
     "brand": "Generic",
@@ -1559,10 +1635,11 @@
       "universal"
     ],
     "image_url": "https://example.com/images/10000mah-universal-power-bank-black.jpg",
-    "description": "Compact 10000mAh power bank with USB-A and USB-C ports compatible with most smartphones."
+    "description": "Compact 10000mAh power bank with USB-A and USB-C ports compatible with most smartphones.",
+    "price": 58491
   },
   {
-    "id": 245,
+    "id": 78,
     "name": "3-in-1 Charging Cable (Lightning/USB-C/Micro-USB)",
     "category": "cable",
     "brand": "Generic",
@@ -1582,10 +1659,11 @@
       "universal"
     ],
     "image_url": "https://example.com/images/3-in-1-charging-cable.jpg",
-    "description": "Multi-connector 3-in-1 charging cable with Lightning, USB-C, and Micro-USB tips."
+    "description": "Multi-connector 3-in-1 charging cable with Lightning, USB-C, and Micro-USB tips.",
+    "price": 48801
   },
   {
-    "id": 301,
+    "id": 79,
     "name": "Random Bluetooth Speaker",
     "category": "speaker",
     "brand": "Generic",
@@ -1600,10 +1678,11 @@
       "bluetooth"
     ],
     "image_url": "https://example.com/images/random-bluetooth-speaker.jpg",
-    "description": "Portable Bluetooth speaker with wireless connectivity and built-in microphone."
+    "description": "Portable Bluetooth speaker with wireless connectivity and built-in microphone.",
+    "price": 98594
   },
   {
-    "id": 302,
+    "id": 80,
     "name": "Wireless Earbuds with Charging Case",
     "category": "earbuds",
     "brand": "Generic",
@@ -1620,10 +1699,11 @@
       "universal"
     ],
     "image_url": "https://example.com/images/generic-wireless-earbuds.jpg",
-    "description": "True wireless earbuds with charging case and up to 20 hours total playtime."
+    "description": "True wireless earbuds with charging case and up to 20 hours total playtime.",
+    "price": 58887
   },
   {
-    "id": 303,
+    "id": 81,
     "name": "Magnetic Car Phone Holder",
     "category": "car_mount",
     "brand": "Generic",
@@ -1638,10 +1718,11 @@
       "magnetic"
     ],
     "image_url": "https://example.com/images/magnetic-car-phone-holder.jpg",
-    "description": "Universal magnetic car phone holder for dashboard mounting."
+    "description": "Universal magnetic car phone holder for dashboard mounting.",
+    "price": 31044
   },
   {
-    "id": 304,
+    "id": 82,
     "name": "USB-C Wall Charger Dual Port",
     "category": "charger",
     "brand": "Generic",
@@ -1660,10 +1741,11 @@
       "dual_port"
     ],
     "image_url": "https://example.com/images/dual-port-wall-charger-30w.jpg",
-    "description": "30W dual-port wall charger with USB-C and USB-A outputs for fast charging multiple devices."
+    "description": "30W dual-port wall charger with USB-C and USB-A outputs for fast charging multiple devices.",
+    "price": 95061
   },
   {
-    "id": 305,
+    "id": 83,
     "name": "Silicone Watch Strap 22mm",
     "category": "watch_strap",
     "brand": "Generic",
@@ -1679,7 +1761,8 @@
       "universal"
     ],
     "image_url": "https://example.com/images/silicone-watch-strap-22mm-black.jpg",
-    "description": "Universal 22mm silicone watch strap compatible with many Android smartwatches."
+    "description": "Universal 22mm silicone watch strap compatible with many Android smartwatches.",
+    "price": 37767
   },
   {
     "id": 333,

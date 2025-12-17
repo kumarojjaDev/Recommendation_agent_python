@@ -129,7 +129,8 @@ def _load_postgres_data(limit: Optional[int] = None, offset: int = 0) -> List[di
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
                    image_url,
-                   description
+                   description,
+                   price
             FROM products
             ORDER BY id
         """
@@ -164,7 +165,7 @@ def _get_postgres_product_by_id(product_id: Any) -> Optional[dict]:
             SELECT id, name, category, brand, model,
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                   image_url, description
+                   image_url, description, price
             FROM products
             WHERE id = %s
             LIMIT 1
@@ -237,7 +238,7 @@ def _search_postgres_by_tag(tag: str) -> List[dict]:
             SELECT id, name, category, brand, model,
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                   image_url, description
+                   image_url, description, price
             FROM products
             WHERE EXISTS (
               SELECT 1 FROM unnest(tags) AS t WHERE lower(t) = %s
@@ -271,7 +272,7 @@ def _get_postgres_products_by_category(category: str, limit: int = 500) -> List[
             SELECT id, name, category, brand, model,
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                   image_url, description
+                   image_url, description, price
             FROM products
             WHERE category = %s
             LIMIT %s
@@ -300,7 +301,7 @@ def _get_postgres_products_by_brand(brand: str, limit: int = 500) -> List[dict]:
             SELECT id, name, category, brand, model,
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                   image_url, description
+                   image_url, description, price
             FROM products
             WHERE brand = %s
             LIMIT %s
@@ -355,7 +356,7 @@ def _get_postgres_products_by_text(query: str, limit: int = 500) -> List[dict]:
             SELECT id, name, category, brand, model,
                    attributes::jsonb AS attributes,
                    CASE WHEN tags IS NULL THEN NULL ELSE array_to_json(tags) END AS tags,
-                   image_url, description
+                   image_url, description, price
             FROM products
             WHERE name ILIKE %s
             OR EXISTS (SELECT 1 FROM unnest(tags) t WHERE t ILIKE %s)
@@ -383,7 +384,7 @@ def _load_data(limit: Optional[int] = None, offset: int = 0) -> List[dict]:
         if pg:
             return pg
         logger.info("Falling back to local JSON because Postgres returned no rows or failed.")
-    # return _load_json_data()
+        return _load_json_data()
 
 
 def get_all_products(limit: Optional[int] = None, offset: int = 0) -> List[object]:

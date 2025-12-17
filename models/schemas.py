@@ -7,6 +7,9 @@ class Product(BaseModel):
     category: str
     brand: Optional[str] = None
     model: Optional[str] = None
+    image_url: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[float] = 0.0
     attributes: dict = Field(default_factory=dict)
     tags: List[str] = Field(default_factory=list)
 
@@ -16,6 +19,9 @@ class PublicProduct(BaseModel):
     category: str
     brand: Optional[str] = None
     model: Optional[str] = None
+    image_url: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[float] = 0.0
 
 class RecommendationRequest(BaseModel):
     item_name: str

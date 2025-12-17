@@ -1,10 +1,12 @@
 {
   "GEMINI_MODEL": "models/gemini-2.5-flash",
   "GEMINI_FALLBACK_MODEL": "models/gemini-2.0-flash",
+  "GEMINI_API_KEY": "AIzaSyC5-lbARkVdGCxhLOR19t2gJtepdn8p1YU",
   "USE_MONGO": false,
   "MONGO_URI": "mongodb://localhost:27017",
   "MONGO_DB": "recommendation_db",
   "MONGO_COLLECTION": "products",
   "PRODUCTS_FILE": "products.json",
   "USE_POSTGRES": true,
-"POSTGRES_DSN" :"postgresql://postgres:postgres@localhost:5432/postgres"}
+  "POSTGRES_DSN": "postgresql://postgres:2580@localhost:5432/techkart"
+}
